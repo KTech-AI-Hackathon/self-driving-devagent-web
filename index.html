@@ -4225,9 +4225,13 @@
     }
     .ktech-pipeline-card.current .ktech-card-title {
       color: var(--card-accent, #00ffcc);
-      text-shadow: 0 0 6px var(--card-accent, #00ffcc);
+      text-shadow: 0 0 6px var(--card-accent, #00ffcc), 0 0 14px var(--card-accent, #00ffcc);
+      animation: ktech-title-glow 1.5s ease-in-out infinite;
     }
-
+    @keyframes ktech-title-glow {
+      0%, 100% { text-shadow: 0 0 6px var(--card-accent, #00ffcc), 0 0 14px var(--card-accent, #00ffcc); }
+      50% { text-shadow: 0 0 10px var(--card-accent, #00ffcc), 0 0 22px var(--card-accent, #00ffcc), 0 0 30px rgba(0,255,204,0.3); }
+    }
     /* Card status text */
     .ktech-card-status {
       margin: 0;
@@ -4330,9 +4334,9 @@
       background: linear-gradient(
         105deg,
         transparent 0%,
-        rgba(255, 255, 255, 0.06) 30%,
-        rgba(255, 255, 255, 0.15) 50%,
-        rgba(255, 255, 255, 0.06) 70%,
+        rgba(255, 255, 255, 0.08) 30%,
+        rgba(255, 255, 255, 0.18) 50%,
+        rgba(255, 255, 255, 0.08) 70%,
         transparent 100%
       );      pointer-events: none;
       z-index: 1;
@@ -4555,7 +4559,7 @@
     .ktech-pipeline-card.done:not(:last-child)::before {
       color: rgba(0, 255, 204, 0.75);
       text-shadow: 0 0 8px rgba(0, 255, 204, 0.6), 0 0 16px rgba(0, 255, 204, 0.2);
-    }    }
+    }
     /* Arrow before current card pulses — showing data is flowing NOW */
     .ktech-pipeline-card.current:not(:last-child)::before {
       animation: ktech-arrow-flow 0.8s ease-in-out infinite;
@@ -4594,14 +4598,14 @@
       backdrop-filter: blur(4px);
     }
     .ktech-status-dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: #0f8;
-      box-shadow: 0 0 8px #0f8;
+      box-shadow: 0 0 8px #0f8, 0 0 16px rgba(0, 255, 136, 0.4);
       animation: ktech-status-pulse 1s ease-in-out infinite;
-    }
-    @keyframes ktech-status-pulse {
+      flex-shrink: 0;
+    }    @keyframes ktech-status-pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.3; }
     }
@@ -4738,9 +4742,15 @@
         display: none !important;
       }
       .ktech-card-progress { display: none; }
-      .ktech-status-dot { animation: none; }
-      .ktech-pipeline-card:not(:last-child)::before { display: none; }
-    }
+    .ktech-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0f8;
+      box-shadow: 0 0 8px #0f8, 0 0 16px rgba(0, 255, 136, 0.4);
+      animation: ktech-status-pulse 1s ease-in-out infinite;
+      flex-shrink: 0;
+    }    }
 
     /* Mobile: stack vertically */
     @media (max-width: 768px) {
