@@ -10,6 +10,13 @@
   <meta property="og:title" content="DevAgent - AI Digital Twin · Enterprise Edition">
   <meta property="og:description" content="Transforming software development through autonomous AI agents">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DevAgent">
+  <!-- TODO: add og:image / og:url once a hosted social preview image is available -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DevAgent - AI Digital Twin · Enterprise Edition">
+  <meta name="twitter:description" content="Transforming software development through autonomous AI agents">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300ff88'/%3E%3Cstop offset='.5' stop-color='%2300ccff'/%3E%3Cstop offset='1' stop-color='%23bf00ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ctext x='32' y='45' font-size='38' font-weight='900' font-family='Arial,sans-serif' text-anchor='middle' fill='url(%23g)'%3ED%3C/text%3E%3C/svg%3E">
   <title>DevAgent - AI Digital Twin · Enterprise Edition</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,6 +67,14 @@
       --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --transition-slow: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
       --transition-dramatic: 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+
+      /* Border Radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+
+      /* Semantic alias for secondary accent */
+      --secondary-color: var(--accent-secondary);
     }
 
     /* Reset & Base */
@@ -71,7 +86,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
+      scroll-snap-type: y proximity;
       font-size: 16px;
     }
 
@@ -106,9 +121,9 @@
     /* Language Control with optimized rendering */
     [data-lang="zh"] { display: none; }
     body.lang-zh [data-lang="en"] { display: none !important; }
-    body.lang-zh [data-lang="zh"] { display: inline !important; }
+    body.lang-zh [data-lang="zh"] { display: revert !important; }
     body.lang-en [data-lang="zh"] { display: none !important; }
-    body.lang-en [data-lang="en"] { display: inline !important; }
+    body.lang-en [data-lang="en"] { display: revert !important; }
 
     /* Particles Background */
     .particles-container {
@@ -158,7 +173,17 @@
       position: relative;
       scroll-snap-align: start;
       overflow: hidden;
-      transition: opacity 0.5s var(--transition-base);
+      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Short viewports: let sections grow and scroll naturally instead of clipping content */
+    @media (max-height: 700px) {
+      .section {
+        height: auto;
+        min-height: 100vh;
+        max-height: none;
+        overflow: visible;
+      }
     }
 
     /* Compact sections for content-heavy slides */
@@ -189,7 +214,6 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      will-change: transform, box-shadow, border-color;
       contain: layout style paint;
       transition: transform var(--transition-slow), box-shadow var(--transition-slow), border-color var(--transition-slow);
     }
@@ -205,7 +229,6 @@
       transform: scaleX(0);
       transform-origin: left;
       transition: transform var(--transition-slow);
-      will-change: transform;
     }
 
     .card:hover::before {
@@ -249,8 +272,6 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-color);
       padding: var(--space-md) var(--space-xl);
-      transition: transform var(--transition-base), background-color var(--transition-base), border-color var(--transition-base), opacity var(--transition-base);
-      will-change: transform, opacity;
       contain: layout style paint;
       /* Default auto-hide behavior like language switcher */
       opacity: 0;
@@ -295,7 +316,6 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-decoration: none;
-      will-change: transform, filter;
       contain: layout style paint;
       transition: transform var(--transition-base), filter var(--transition-base);
     }
@@ -322,7 +342,6 @@
       font-size: 14px;
       font-weight: 600;
       position: relative;
-      will-change: color, transform;
       transition: color var(--transition-base), transform var(--transition-base);
       contain: layout style paint;
     }
@@ -336,7 +355,6 @@
       height: 2px;
       background: var(--accent-color);
       transition: width var(--transition-base);
-      will-change: width;
     }
 
     .nav-link:hover {
@@ -372,7 +390,6 @@
       z-index: 101;
       transform-origin: left;
       transition: transform var(--transition-base);
-      will-change: transform;
       contain: layout style paint;
       box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
     }
@@ -396,7 +413,6 @@
       background: rgba(255, 255, 255, 0.2);
       border: 2px solid rgba(255, 255, 255, 0.3);
       cursor: pointer;
-      will-change: transform, background, border-color, box-shadow;
       contain: layout style paint;
       transition: transform var(--transition-base), background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
     }
@@ -439,6 +455,7 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--text-muted);
+      border-bottom: 2px solid var(--accent-color);
     }
 
     .comparison-table td {
@@ -452,7 +469,6 @@
     .comparison-table tbody tr {
       opacity: 0;
       animation: fadeInUp 0.6s ease-out forwards;
-      will-change: opacity, transform;
       contain: layout style paint;
     }
 
@@ -608,10 +624,6 @@
       background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 204, 255, 0.1));
     }
 
-    .comparison-table th {
-      border-bottom: 2px solid var(--accent-color);
-    }
-
     /* Agent System Styling */
     .agent-card {
       background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 204, 255, 0.05));
@@ -749,23 +761,6 @@
     .feature-icon {
       font-size: 18px;
       flex-shrink: 0;
-    }
-
-    /* Card Padding Enhancement */
-    .card-padding {
-      padding: var(--space-lg);
-    }
-
-    /* Gradient Background Card */
-    .gradient-bg {
-      background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 204, 255, 0.1), rgba(157, 0, 255, 0.1));
-      border: 1px solid rgba(0, 255, 136, 0.3);
-    }
-
-    /* Emoji sizing */
-    .emoji-48 {
-      font-size: 48px;
-      line-height: 1;
     }
 
     /* AI Self-driving Pipeline Styling - Enhanced Visual Design */
@@ -1194,10 +1189,8 @@
         font-size: 24px;
         margin: var(--space-xs) 0;
       }
-    }
 
-    /* Mobile Table Enhancement */
-    @media (max-width: 768px) {
+      /* Mobile Table Enhancement */
       .comparison-table {
         display: block;
         overflow-x: auto;
@@ -1249,7 +1242,6 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: var(--space-lg);
-      will-change: transform, box-shadow;
       contain: layout style paint;
     }
 
@@ -1287,7 +1279,6 @@
       display: inline-flex;
       align-items: center;
       gap: var(--space-sm);
-      will-change: transform, box-shadow;
       contain: layout style paint;
       transition: transform var(--transition-base), box-shadow var(--transition-base);
     }
@@ -1438,13 +1429,13 @@
     .text-muted { color: var(--text-muted); }
     .font-bold { font-weight: 700; }
     .font-uppercase { text-transform: uppercase; letter-spacing: 0.05em; }
-    .emoji-48 { font-size: 48px; margin-bottom: var(--space-md); }
+    .emoji-48 { font-size: 48px; line-height: 1; margin-bottom: var(--space-md); }
     .emoji-32 { font-size: 32px; margin-bottom: var(--space-sm); }
     .emoji-40 { font-size: 40px; margin-bottom: var(--space-md); }
     .emoji-36 { font-size: 36px; margin-bottom: var(--space-md); }
     .emoji-24 { font-size: 24px; margin-bottom: var(--space-sm); }
     .card-padding { padding: var(--space-md); background: rgba(0, 255, 136, 0.05); border-radius: 12px; }
-    .gradient-bg { background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 204, 255, 0.1)); }
+    .gradient-bg { background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 204, 255, 0.1)); border: 1px solid rgba(0, 255, 136, 0.3); }
     .hero-padding { padding-top: 10vh; }
     .hero-text { font-size: clamp(20px, 3vw, 28px); max-width: 800px; margin: 0 auto var(--space-3xl); }
     .section-text { font-size: clamp(18px, 2vw, 24px); max-width: 900px; margin: 0 auto var(--space-3xl); }
@@ -1645,7 +1636,6 @@
       font-family: 'Noto Sans SC', sans-serif;
       position: relative;
       overflow: hidden;
-      will-change: transform, background, color;
       contain: layout style paint;
       transition: transform var(--transition-base), background var(--transition-base), color var(--transition-base);
     }
@@ -1677,12 +1667,7 @@
 
     @media (max-width: 768px) {
       .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-      .section { padding: var(--space-xl) var(--space-md); }
       .language-switcher { top: var(--space-md); right: var(--space-md); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
 
     /* Loading Animation */
@@ -1747,25 +1732,21 @@
 
     .animate-in {
       animation: fadeInUp 0.8s ease-out forwards;
-      will-change: opacity, transform;
       contain: layout style paint;
     }
 
     .animate-in-left {
       animation: slideInLeft 0.8s ease-out forwards;
-      will-change: opacity, transform;
       contain: layout style paint;
     }
 
     .animate-in-right {
       animation: slideInRight 0.8s ease-out forwards;
-      will-change: opacity, transform;
       contain: layout style paint;
     }
 
     .animate-scale {
       animation: scaleIn 0.6s ease-out forwards;
-      will-change: opacity, transform;
       contain: layout style paint;
     }
 
@@ -1822,13 +1803,6 @@
       outline-offset: 2px;
     }
 
-    /* Performance Optimizations */
-    .card, .section, .metric-value {
-      will-change: transform;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-    }
-
     /* Responsive Typography */
     @media (max-width: 768px) {
       h1 { font-size: clamp(36px, 10vw, 64px); }
@@ -1841,6 +1815,11 @@
     .animations-paused .animate-in,
     .animations-paused .gradient-text {
       animation-play-state: paused !important;
+    }
+
+    /* Off-screen sections: particle animations paused via IntersectionObserver */
+    .particles-container.particles-paused .particle {
+      animation-play-state: paused;
     }
 
     .reduce-animations .particle,
@@ -1935,6 +1914,8 @@
 
       .card {
         padding: var(--space-lg);
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
       }
 
       .nav-links {
@@ -1962,12 +1943,6 @@
       @keyframes pulse {
         0%, 100% { opacity: 0.3; }
         50% { opacity: 0.7; }
-      }
-
-      /* Optimize mobile touch */
-      .card {
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
       }
 
       /* Mobile language switcher optimization */
@@ -2287,7 +2262,6 @@
       cursor: pointer;
       outline: none;
       opacity: 0.45;
-      will-change: transform, opacity;
       backdrop-filter: blur(10px);
       animation: stage-enter 0.6s ease-out backwards;
     }
@@ -4591,11 +4565,6 @@
       position: relative;
       z-index: 1;
       backdrop-filter: blur(4px);
-    }      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      z-index: 1;
-      backdrop-filter: blur(4px);
     }
     .ktech-status-dot {
       width: 8px;
@@ -4764,6 +4733,15 @@
   </style>
 </head>
 <body>
+  <!-- Apply saved language before first paint to prevent language flash (FOUC) -->
+  <script>
+    (function () {
+      var lang = localStorage.getItem('devagent-lang') || 'en';
+      document.body.classList.add('lang-' + lang);
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    })();
+  </script>
+
   <!-- Language Switcher with enhanced accessibility -->
   <div class="language-switcher" role="group" aria-label="Language selector">
     <button class="lang-btn active" data-lang-toggle="en" aria-pressed="true">English</button>
@@ -6590,6 +6568,10 @@
   </section>
 
   <script>
+    // Set to true to enable verbose pipeline/debug logging
+    const DEBUG = false;
+    const debugLog = (...args) => { if (DEBUG) console.log(...args); };
+
     // Language Switcher
     class LanguageSwitcher {
       constructor() {
@@ -6614,6 +6596,7 @@
       setLanguage(lang) {
         this.currentLang = lang;
         localStorage.setItem('devagent-lang', lang);
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
         document.body.classList.remove('lang-en', 'lang-zh');
         document.body.classList.add(`lang-${lang}`);
 
@@ -6748,7 +6731,7 @@
           if (card.classList.contains('current')) this.phaseIndex = i;
         });
 
-        console.log(
+        debugLog(
           'KTech Pipeline v3: init phaseIndex=' + this.phaseIndex +
           ' phase=' + this.PHASES[this.phaseIndex] +
           ' cards=' + this.cards.length +
@@ -6811,7 +6794,7 @@
         this._updateDecisionLog();
         this._bindVisibilityListeners();
         this.rafHandle = requestAnimationFrame(this._onFrame);
-        console.log('KTech Pipeline v3: loop STARTED ✓ rafHandle=' + this.rafHandle);
+        debugLog('KTech Pipeline v3: loop STARTED ✓ rafHandle=' + this.rafHandle);
 
         // Self-healing watchdog: auto-restart if loop stalls > 3s
         this._lastHeartbeat = Date.now();
@@ -6836,10 +6819,10 @@
           this.phaseIndex = 0;
           this.loopIteration++;
           try { this._celebrateCycle(); } catch (e) {}
-          console.log('KTech Pipeline v3: ■ LOOP WRAP #' + this.loopIteration + ' — ' + prevPhase + ' → intake');
+          debugLog('KTech Pipeline v3: ■ LOOP WRAP #' + this.loopIteration + ' — ' + prevPhase + ' → intake');
         } else {
           this.phaseIndex = next;
-          console.log('KTech Pipeline v3: ' + prevPhase + ' → ' + this.PHASES[this.phaseIndex]);
+          debugLog('KTech Pipeline v3: ' + prevPhase + ' → ' + this.PHASES[this.phaseIndex]);
         }
 
         this._totalDecisions++;
@@ -7131,7 +7114,7 @@
           clearInterval(this._watchdogTimer);
           this._watchdogTimer = null;
         }
-        console.log('KTech Pipeline v3: paused');
+        debugLog('KTech Pipeline v3: paused');
       }
 
       resume() {
@@ -7151,7 +7134,7 @@
               }
             }, 2000);
           }
-          console.log('KTech Pipeline v3: resumed');
+          debugLog('KTech Pipeline v3: resumed');
         }
       }
 
@@ -7161,7 +7144,7 @@
         this.phaseIndex = idx;
         this.phaseElapsedMs = 0;
         this._applyVisualState();
-        console.log('KTech Pipeline v3: jumped to ' + phaseName + ' (idx=' + idx + ')');
+        debugLog('KTech Pipeline v3: jumped to ' + phaseName + ' (idx=' + idx + ')');
       }
     }
 
@@ -7171,14 +7154,14 @@
       // Init PipelineController with error resilience
       try {
         window.pipelineController = new PipelineController();
-        console.log('%c🚀 KTech Pipeline v3 initialized successfully', 'color: #0f8;');
+        debugLog('%c🚀 KTech Pipeline v3 initialized successfully', 'color: #0f8;');
       } catch (e) {
         console.error('PipelineController init failed:', e);
         // Retry after a short delay in case DOM wasn't ready
         setTimeout(() => {
           try {
             window.pipelineController = new PipelineController();
-            console.log('%c🚀 KTech Pipeline v3 initialized (retry)', 'color: #0f8;');
+            debugLog('%c🚀 KTech Pipeline v3 initialized (retry)', 'color: #0f8;');
           } catch (e2) {
             console.error('PipelineController retry also failed:', e2);
           }
@@ -7208,128 +7191,128 @@
         new ParticleSystem(containerId, count);
       });
 
-      // Set initial language
-      const savedLang = localStorage.getItem('devagent-lang') || 'en';
-      document.body.classList.add(`lang-${savedLang}`);
+      // Debug: Log pipeline availability (only when DEBUG is enabled)
+      if (DEBUG) {
+        setTimeout(() => {
+          if (window.pipelineController) {
+            console.log('%c KTech Pipeline v3 Active — Debug Tools ', 'background: #0f0; color: #000; font-weight: bold');
+            console.log('window.pipelineController.pause() — Pause the loop');
+            console.log('window.pipelineController.resume() — Resume the loop');
+            console.log('window.pipelineController.jumpToPhase("coder") — Jump to phase by name');
+            console.log('Phases:', window.pipelineController.PHASES.join(' → '));
+            console.log('Pipeline phaseIndex:', window.pipelineController.phaseIndex);
+            console.log('Pipeline loopIteration:', window.pipelineController.loopIteration);
+          } else {
+            console.error('Pipeline Controller not initialized!');
+          }
+        }, 2000);
+      }
 
-      // Debug: Log pipeline availability
-      setTimeout(() => {
-        if (window.pipelineController) {
-          console.log('%c KTech Pipeline v3 Active — Debug Tools ', 'background: #0f0; color: #000; font-weight: bold');
-          console.log('window.pipelineController.pause() — Pause the loop');
-          console.log('window.pipelineController.resume() — Resume the loop');
-          console.log('window.pipelineController.jumpToPhase("coder") — Jump to phase by name');
-          console.log('Phases:', window.pipelineController.PHASES.join(' → '));
-          console.log('Pipeline phaseIndex:', window.pipelineController.phaseIndex);
-          console.log('Pipeline loopIteration:', window.pipelineController.loopIteration);
-        } else {
-          console.error('Pipeline Controller not initialized!');
-        }
-      }, 2000);
-
-      // Counting animation for metrics with optimized performance
-      const countingElements = document.querySelectorAll('.metric-value, .stat-value, .counting-animation');
-      countingElements.forEach((element) => {
-        const text = element.textContent;
-        const numberMatch = text.match(/[\d.]+/);
-        if (!numberMatch) return;
-
-        const targetNumber = parseFloat(numberMatch[0]);
-        const suffix = text.replace(numberMatch[0], '');
-        const duration = 2000;
-        const steps = 60;
-        const increment = targetNumber / steps;
-        let currentCount = 0;
-        let step = 0;
-        let animationStarted = false;
-
-        // Start animation when element is visible
-        const countObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting && !element.classList.contains('counted') && !animationStarted) {
-              animationStarted = true;
-              element.classList.add('counted');
-
-              const startTime = performance.now();
-              const animateCount = (currentTime) => {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-
-                if (progress < 1) {
-                  step = Math.floor(progress * steps);
-                  currentCount = step * increment;
-                  const displayValue = targetNumber % 1 !== 0 ? currentCount.toFixed(1) : Math.floor(currentCount);
-                  element.textContent = displayValue + suffix;
-                  requestAnimationFrame(animateCount);
-                } else {
-                  element.textContent = targetNumber + suffix;
-                }
-              };
-
-              requestAnimationFrame(animateCount);
-            }
-          });
-        }, { threshold: 0.5 });
-
-        countObserver.observe(element);
+      // Pause particle animations for off-screen sections to save CPU/GPU
+      const particlePauseObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          entry.target.classList.toggle('particles-paused', !entry.isIntersecting);
+        });
       });
+      document.querySelectorAll('.particles-container')
+        .forEach(container => particlePauseObserver.observe(container));
 
-      // Navigation and scroll tracking
-      const sections = document.querySelectorAll('.section');
+      // Counting animation for metrics — one shared IntersectionObserver
+      const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const element = entry.target;
+          if (!entry.isIntersecting || element.classList.contains('counted')) return;
+
+          const text = element.textContent;
+          const numberMatch = text.match(/[\d.]+/);
+          element.classList.add('counted');
+          countObserver.unobserve(element);
+          if (!numberMatch) return;
+
+          const targetNumber = parseFloat(numberMatch[0]);
+          const suffix = text.replace(numberMatch[0], '');
+          const duration = 2000;
+          const steps = 60;
+          const increment = targetNumber / steps;
+          const startTime = performance.now();
+
+          const animateCount = (currentTime) => {
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            if (progress < 1) {
+              const currentCount = Math.floor(progress * steps) * increment;
+              const displayValue = targetNumber % 1 !== 0 ? currentCount.toFixed(1) : Math.floor(currentCount);
+              element.textContent = displayValue + suffix;
+              requestAnimationFrame(animateCount);
+            } else {
+              element.textContent = targetNumber + suffix;
+            }
+          };
+
+          requestAnimationFrame(animateCount);
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.metric-value, .stat-value, .counting-animation')
+        .forEach(el => countObserver.observe(el));
+
+      // Navigation and section tracking via IntersectionObserver
+      // (no per-scroll getBoundingClientRect calls)
+      const sections = Array.from(document.querySelectorAll('.section'));
       const navLinks = document.querySelectorAll('.nav-link');
       const slideIndicators = document.querySelectorAll('.slide-indicator');
       const progressBar = document.getElementById('progressBar');
+      let currentSectionId = sections[0]?.getAttribute('id') || '';
 
-      const updateNavigation = () => {
-        let currentSection = '';
-
-        sections.forEach((section, index) => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
-            currentSection = section.getAttribute('id');
-          }
-        });
-
+      const updateNavigation = (sectionId) => {
         // Update nav links with optimized toggling
         navLinks.forEach(link => {
           const href = link.getAttribute('href')?.substring(1);
-          const isActive = href === currentSection;
+          const isActive = href === sectionId;
           link.classList.toggle('active', isActive);
           link.setAttribute('aria-current', isActive ? 'true' : 'false');
         });
 
         // Update slide indicators with optimized toggling
         slideIndicators.forEach((indicator, index) => {
-          const sectionId = sections[index]?.getAttribute('id');
-          const isActive = sectionId === currentSection;
+          const isActive = sections[index]?.getAttribute('id') === sectionId;
           indicator.classList.toggle('active', isActive);
           indicator.setAttribute('aria-current', isActive ? 'true' : 'false');
         });
 
-        // Update progress bar with optimized calculation
-        if (progressBar && currentSection) {
-          const currentIndex = Array.from(sections).findIndex(
-            section => section.getAttribute('id') === currentSection
-          );
+        // Update progress bar
+        if (progressBar) {
+          const currentIndex = sections.findIndex(s => s.getAttribute('id') === sectionId);
           if (currentIndex !== -1) {
-            const progress = ((currentIndex + 1) / sections.length) * 100;
-            progressBar.style.transform = `scaleX(${(progress / 100).toFixed(3)})`;
+            progressBar.style.transform = `scaleX(${((currentIndex + 1) / sections.length).toFixed(3)})`;
           }
         }
       };
 
-      // Throttled scroll event for better performance
-      let ticking = false;
-      const scrollHandler = () => {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            updateNavigation();
-            ticking = false;
-          });
-          ticking = true;
+      // Track the most visible section as the current one
+      const visibleSectionRatios = new Map();
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            visibleSectionRatios.set(entry.target.getAttribute('id'), entry.intersectionRatio);
+          } else {
+            visibleSectionRatios.delete(entry.target.getAttribute('id'));
+          }
+        });
+
+        let bestId = '';
+        let bestRatio = -1;
+        visibleSectionRatios.forEach((ratio, id) => {
+          if (ratio > bestRatio) { bestRatio = ratio; bestId = id; }
+        });
+
+        if (bestId && bestId !== currentSectionId) {
+          currentSectionId = bestId;
+          updateNavigation(bestId);
         }
-      };
-      window.addEventListener('scroll', scrollHandler, { passive: true });
+      }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
+
+      sections.forEach(section => sectionObserver.observe(section));
+      updateNavigation(currentSectionId);
 
       // Scroll-based animations with optimized observer
       const observerOptions = {
@@ -7378,22 +7361,14 @@
           return;
         }
 
-        const sections = Array.from(document.querySelectorAll('.section'));
-        const currentSection = sections.find(section => {
-          const rect = section.getBoundingClientRect();
-          return rect.top >= 0 && rect.top < window.innerHeight / 2;
-        });
-
-        const currentIndex = sections.indexOf(currentSection);
+        const currentIndex = Math.max(0, sections.findIndex(s => s.getAttribute('id') === currentSectionId));
 
         if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
           e.preventDefault();
-          const nextIndex = Math.min(currentIndex + 1, sections.length - 1);
-          sections[nextIndex]?.scrollIntoView({ behavior: 'smooth' });
+          sections[Math.min(currentIndex + 1, sections.length - 1)]?.scrollIntoView({ behavior: 'smooth' });
         } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
           e.preventDefault();
-          const prevIndex = Math.max(currentIndex - 1, 0);
-          sections[prevIndex]?.scrollIntoView({ behavior: 'smooth' });
+          sections[Math.max(currentIndex - 1, 0)]?.scrollIntoView({ behavior: 'smooth' });
         } else if (e.key === 'Home') {
           e.preventDefault();
           sections[0]?.scrollIntoView({ behavior: 'smooth' });
@@ -7428,138 +7403,6 @@
       };
       document.addEventListener('visibilitychange', visibilityHandler);
 
-      // Navigation auto-hide functionality - DISABLED for new hover-based behavior
-      // const nav = document.querySelector('.nav');
-      // let lastScrollTop = 0;
-      // let scrollTimeout = null;
-      // let isFullscreen = false;
-
-      // // Check fullscreen state
-      // const checkFullscreen = () => {
-      //   isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement ||
-      //                   document.mozFullScreenElement || document.msFullscreenElement);
-      // };
-
-      // // Show/hide navigation based on scroll direction and fullscreen state
-      // const handleNavVisibility = () => {
-      //   if (!nav) return;
-
-      //   const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      //   const scrollDelta = currentScrollTop - lastScrollTop;
-      //   const isScrollingDown = scrollDelta > 0 && currentScrollTop > 100;
-      //   const isScrollingUp = scrollDelta < 0;
-
-      //   // Auto-hide navigation when scrolling down in fullscreen mode
-      //   if (isFullscreen && isScrollingDown) {
-      //     nav.classList.add('nav-hidden');
-      //     nav.classList.remove('nav-visible');
-      //   }
-      //   // Show navigation when scrolling up or not in fullscreen
-      //   else if (isScrollingUp || !isFullscreen || currentScrollTop < 50) {
-      //     nav.classList.remove('nav-hidden');
-      //     nav.classList.add('nav-visible');
-      //   }
-
-      //   lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-      // };
-
-      // // Enhanced scroll handler with nav visibility
-      // const enhancedScrollHandler = () => {
-      //   if (!ticking) {
-      //     window.requestAnimationFrame(() => {
-      //       updateNavigation();
-      //       handleNavVisibility();
-      //       ticking = false;
-      //     });
-      //     ticking = true;
-      //   }
-      // };
-
-      // // Replace the existing scroll handler - DISABLED, keeping original
-      // window.removeEventListener('scroll', scrollHandler);
-      // window.addEventListener('scroll', enhancedScrollHandler, { passive: true });
-
-      // Original scroll handler remains active for navigation highlighting
-      // Nav visibility now controlled by CSS hover effects
-
-      // // Fullscreen API event listeners
-      // const fullscreenChangeHandler = () => {
-      //   checkFullscreen();
-
-      //   if (!isFullscreen) {
-      //     // Always show navigation when exiting fullscreen
-      //     nav.classList.remove('nav-hidden');
-      //     nav.classList.add('nav-visible');
-      //   } else {
-      //     // When entering fullscreen, show navigation initially
-      //     nav.classList.remove('nav-hidden');
-      //     nav.classList.add('nav-visible');
-      //   }
-      // };
-
-      // document.addEventListener('fullscreenchange', fullscreenChangeHandler);
-      // document.addEventListener('webkitfullscreenchange', fullscreenChangeHandler);
-      // document.addEventListener('mozfullscreenchange', fullscreenChangeHandler);
-      // document.addEventListener('MSFullscreenChange', fullscreenChangeHandler);
-
-      // Show navigation on keyboard navigation - DISABLED for new hover-based behavior
-      const enhancedKeyboardHandler = (e) => {
-        // Show nav on keyboard navigation - REMOVED for hover-based behavior
-        // nav.classList.remove('nav-hidden');
-        // nav.classList.add('nav-visible');
-
-        // Original keyboard handler logic
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-          return;
-        }
-
-        const sections = Array.from(document.querySelectorAll('.section'));
-        const currentSection = sections.find(section => {
-          const rect = section.getBoundingClientRect();
-          return rect.top >= 0 && rect.top < window.innerHeight / 2;
-        });
-
-        const currentIndex = sections.indexOf(currentSection);
-
-        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-          e.preventDefault();
-          const nextIndex = Math.min(currentIndex + 1, sections.length - 1);
-          sections[nextIndex]?.scrollIntoView({ behavior: 'smooth' });
-        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-          e.preventDefault();
-          const prevIndex = Math.max(currentIndex - 1, 0);
-          sections[prevIndex]?.scrollIntoView({ behavior: 'smooth' });
-        } else if (e.key === 'Home') {
-          e.preventDefault();
-          sections[0]?.scrollIntoView({ behavior: 'smooth' });
-        } else if (e.key === 'End') {
-          e.preventDefault();
-          sections[sections.length - 1]?.scrollIntoView({ behavior: 'smooth' });
-        }
-      };
-
-      // Replace the existing keyboard handler
-      document.removeEventListener('keydown', keyboardHandler);
-      document.addEventListener('keydown', enhancedKeyboardHandler);
-
-      // Show navigation when mouse approaches top of screen
-      let mouseTopTimeout = null;
-      document.addEventListener('mousemove', (e) => {
-        if (e.clientY < 100) { // Near top of screen
-          nav.classList.remove('nav-hidden');
-          nav.classList.add('nav-visible');
-
-          clearTimeout(mouseTopTimeout);
-          mouseTopTimeout = setTimeout(() => {
-            if (isFullscreen) {
-              mouseTopTimeout = null;
-            }
-          }, 2000);
-        }
-      });
-
-      // Initial check
-      checkFullscreen();
     });
 
     // AI Self-driving Pipeline Animation Controller - Enhanced sophistication
