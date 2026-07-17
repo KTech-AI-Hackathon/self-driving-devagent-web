@@ -1259,7 +1259,7 @@
     /* Hero Cards Optimization */
     .hero-cards {
       max-width: 900px;
-      margin: var(--space-3xl) auto 0;
+      margin: var(--space-xl) auto 0;
     }
 
     /* CTA Buttons */
@@ -1436,8 +1436,191 @@
     .emoji-24 { font-size: 24px; margin-bottom: var(--space-sm); }
     .card-padding { padding: var(--space-md); background: rgba(0, 255, 136, 0.05); border-radius: 12px; }
     .gradient-bg { background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 204, 255, 0.1)); border: 1px solid rgba(0, 255, 136, 0.3); }
-    .hero-padding { padding-top: 10vh; }
-    .hero-text { font-size: clamp(20px, 3vw, 28px); max-width: 800px; margin: 0 auto var(--space-3xl); }
+    .hero-padding { padding-top: 0; }
+    .hero-text { font-size: clamp(16px, 2vw, 22px); max-width: 800px; margin: 0 auto var(--space-lg); }
+
+    /* Hero: vertically centered compact layout that fits short viewports */
+    #hero { display: flex; flex-direction: column; justify-content: center; }
+    #hero .badge { margin-bottom: var(--space-md); }
+    #hero h1 { font-size: clamp(40px, 7vw, 88px); margin-bottom: var(--space-lg); }
+    #hero .hero-text { margin-bottom: var(--space-md); }
+    #hero .hero-agenda { margin-bottom: var(--space-lg); }
+    .hero-cards .card { padding: var(--space-lg); }
+    .hero-cards h3 { font-size: 20px; }
+    .hero-cards p { font-size: 14px; }
+
+    /* Narrow screens: let hero grow and scroll naturally instead of clipping */
+    @media (max-width: 768px) {
+      #hero { height: auto; min-height: 100vh; max-height: none; overflow: visible; }
+    }
+
+    /* ===== Dense-section fit overrides =====
+       Keep content-heavy slides within 100vh at ~800px viewport heights.
+       Scoped by section ID so fitting slides (hero, workflow, roadmap, cta) stay untouched. */
+    #problems .badge, #vision .badge, #solution .badge, #input-system .badge, #input-modes .badge,
+    #agent-details .badge, #agent-details-2 .badge, #innovation .badge, #innovation-2 .badge,
+    #impact .badge, #impact-2 .badge, #business .badge {
+      padding: var(--space-xs) var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+
+    #problems h2, #vision h2, #solution h2, #input-system h2, #input-modes h2,
+    #agent-details h2, #agent-details-2 h2, #innovation h2, #innovation-2 h2,
+    #impact h2, #impact-2 h2, #business h2 {
+      font-size: clamp(28px, 3.2vw, 44px);
+      margin-bottom: var(--space-md);
+    }
+
+    #solution .section-text-800, #input-system .section-text-800, #input-modes .section-text-800,
+    #agent-details-2 .section-text-800, #innovation .section-text-800,
+    #impact .section-text-800, #impact-2 .section-text-800 {
+      font-size: clamp(15px, 1.5vw, 18px);
+      margin-bottom: var(--space-md);
+    }
+
+    #problems .card, #vision .card, #solution .card, #input-system .card, #input-modes .card,
+    #agent-details .card, #agent-details-2 .card, #innovation .card, #innovation-2 .card,
+    #impact .card, #impact-2 .card, #business .card {
+      padding: 20px var(--space-lg);
+    }
+
+    #problems h3, #vision h3, #solution h3, #input-system h3, #input-modes h3,
+    #agent-details h3, #agent-details-2 h3, #innovation h3, #innovation-2 h3,
+    #impact h3, #impact-2 h3, #business h3 {
+      font-size: clamp(18px, 2vw, 24px);
+    }
+
+    #problems h4, #vision h4, #solution h4, #input-system h4, #input-modes h4,
+    #agent-details h4, #agent-details-2 h4, #innovation h4, #innovation-2 h4,
+    #impact h4, #impact-2 h4, #business h4 {
+      font-size: clamp(15px, 1.5vw, 18px);
+    }
+
+    #problems p, #vision p, #solution p, #input-system p, #input-modes p,
+    #agent-details p, #agent-details-2 p, #innovation p, #innovation-2 p,
+    #impact p, #impact-2 p, #business p {
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    #problems .mb-3xl, #vision .mb-3xl, #solution .mb-3xl, #input-system .mb-3xl, #input-modes .mb-3xl,
+    #agent-details .mb-3xl, #agent-details-2 .mb-3xl, #innovation .mb-3xl, #innovation-2 .mb-3xl,
+    #impact .mb-3xl, #impact-2 .mb-3xl, #business .mb-3xl,
+    #problems .mb-xl, #vision .mb-xl, #solution .mb-xl, #input-system .mb-xl, #input-modes .mb-xl,
+    #agent-details .mb-xl, #agent-details-2 .mb-xl, #innovation .mb-xl, #innovation-2 .mb-xl,
+    #impact .mb-xl, #impact-2 .mb-xl, #business .mb-xl,
+    #solution .mb-3xl-text-center {
+      margin-bottom: var(--space-md);
+    }
+
+    #innovation .mb-lg, #innovation-2 .mb-lg { margin-bottom: var(--space-sm); }
+
+    #problems .grid-2, #problems .grid-3, #vision .grid-2, #vision .grid-3,
+    #solution .grid-2, #solution .grid-3, #input-system .grid-2, #input-modes .grid-3,
+    #agent-details .grid-2, #agent-details-2 .grid-2, #innovation .grid-3, #innovation-2 .grid-4,
+    #impact-2 .grid-2, #impact-2 .grid-4, #business .grid-3 {
+      gap: 12px;
+    }
+
+    #vision .emoji-48, #input-modes .emoji-48, #agent-details .emoji-48, #agent-details-2 .emoji-48 {
+      font-size: 30px;
+      margin-bottom: var(--space-sm);
+    }
+
+    #vision .emoji-32 { font-size: 24px; margin-bottom: var(--space-xs); }
+
+    #problems .problem-icon { font-size: 28px; margin-bottom: var(--space-sm); }
+    #business .solution-icon, #innovation .solution-icon, #innovation-2 .solution-icon {
+      font-size: 30px;
+      margin-bottom: var(--space-sm);
+    }
+
+    #vision .card-padding, #input-system .card-padding { padding: var(--space-sm); }
+    #solution .p-md { padding: var(--space-xs); }
+    #innovation .card-bg { padding: var(--space-sm); }
+    #impact-2 .text-center-p-md, #innovation-2 .text-center-p-md { padding: var(--space-xs); }
+    #impact-2 .gradient-text-48 { font-size: 32px; }
+    #innovation-2 .gradient-text-36, #innovation-2 .gradient-text-36-secondary,
+    #innovation-2 .gradient-text-36-tertiary, #innovation-2 .gradient-text-36-red { font-size: 28px; }
+    #solution .gradient-text-32-no-margin { font-size: 26px; }
+    #solution .card-green-mt-lg { margin-top: var(--space-xs); padding: var(--space-xs); }
+    #innovation .card-green-mt-md { margin-top: var(--space-sm); padding: var(--space-sm); }
+    #innovation-2 .card-black { padding: var(--space-md); margin-bottom: var(--space-md); }
+
+    #agent-details .agent-header, #agent-details-2 .agent-header { margin-bottom: var(--space-sm); }
+    #agent-details .agent-output, #agent-details-2 .agent-output {
+      margin-top: var(--space-sm);
+      padding: var(--space-sm);
+    }
+    #agent-details .agent-workflow h4, #agent-details .agent-output h4,
+    #agent-details-2 .agent-workflow h4, #agent-details-2 .agent-output h4 {
+      font-size: 14px;
+      margin-bottom: var(--space-xs);
+    }
+
+    #input-system .workflow-step { padding: var(--space-xs); }
+    #input-system .workflow-arrow { margin: 2px 0; font-size: 18px; }
+
+    #impact .comparison-table { margin: var(--space-md) 0; }
+    #impact .comparison-table th, #impact .comparison-table td { padding: var(--space-sm) var(--space-md); }
+    #impact .comparison-table td { font-size: 14px; }
+
+    /* Roadmap: same dense treatment (borderline at short heights) */
+    #roadmap .badge { padding: var(--space-xs) var(--space-md); margin-bottom: var(--space-sm); }
+    #roadmap h2 { font-size: clamp(28px, 3.2vw, 44px); margin-bottom: var(--space-md); }
+    #roadmap .section-text-800 { font-size: clamp(15px, 1.5vw, 18px); margin-bottom: var(--space-md); }
+    #roadmap .card { padding: 20px var(--space-lg); }
+    #roadmap h3 { font-size: clamp(18px, 2vw, 24px); }
+    #roadmap .roadmap-header { margin-bottom: var(--space-sm); }
+    #roadmap .roadmap-header h3 { margin-bottom: var(--space-xs); }
+    #roadmap .roadmap-emoji { font-size: 26px; }
+    #roadmap .roadmap-item { margin-bottom: var(--space-xs); padding: var(--space-xs) 0; }
+
+    /* Extra squeeze for the tightest slides so they also fit ~750px-high windows */
+    #solution .card { padding: 16px var(--space-lg); }
+    #solution .emoji-32 { font-size: 20px; margin-bottom: 2px; }
+    #solution .mb-lg, #solution .mb-md { margin-bottom: var(--space-sm); }
+    #impact-2 .card { padding: 18px var(--space-lg); }
+    #impact-2 .gradient-text-48 { font-size: 30px; margin-bottom: 2px; }
+    #impact-2 .font-sm-muted-mb-sm { margin-bottom: 2px; }
+    #impact-2 .text-center-p-md { padding: 6px; }
+
+    /* Hero agenda: one-line story roadmap (5 acts) */
+    .hero-agenda {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm) var(--space-md);
+      margin: 0 auto var(--space-xl);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-agenda-item {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      transition: color var(--transition-base), background var(--transition-base);
+    }
+
+    .hero-agenda-item:hover {
+      color: var(--accent-color);
+      background: rgba(0, 255, 136, 0.08);
+    }
+
+    .hero-agenda-item:focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+
+    .hero-agenda-sep {
+      color: rgba(255, 255, 255, 0.25);
+      font-weight: 400;
+    }
     .section-text { font-size: clamp(18px, 2vw, 24px); max-width: 900px; margin: 0 auto var(--space-3xl); }
     .accent-color { color: var(--accent-color); }
     .h4-title { margin-bottom: var(--space-sm); color: var(--accent-color); }
@@ -4756,18 +4939,11 @@
     <div class="nav-content">
       <a href="#hero" class="nav-logo" aria-label="DevAgent Home">DevAgent</a>
       <ul class="nav-links" role="menubar">
+        <li role="none"><a href="#problems" class="nav-link" role="menuitem"><span data-lang="en">Why</span><span data-lang="zh">痛点</span></a></li>
         <li role="none"><a href="#vision" class="nav-link" role="menuitem"><span data-lang="en">Vision</span><span data-lang="zh">愿景</span></a></li>
-        <li role="none"><a href="#problems" class="nav-link" role="menuitem"><span data-lang="en">Problems</span><span data-lang="zh">痛点</span></a></li>
-        <li role="none"><a href="#solution" class="nav-link" role="menuitem"><span data-lang="en">Solution</span><span data-lang="zh">方案</span></a></li>
-        <li role="none"><a href="#input-system" class="nav-link" role="menuitem"><span data-lang="en">Input</span><span data-lang="zh">输入</span></a></li>
-        <li role="none"><a href="#agent-details" class="nav-link" role="menuitem"><span data-lang="en">Agents</span><span data-lang="zh">智能体</span></a></li>
-        <li role="none"><a href="#agent-details-2" class="nav-link" role="menuitem"><span data-lang="en">Agents 2</span><span data-lang="zh">智能体2</span></a></li>
-        <li role="none"><a href="#workflow" class="nav-link" role="menuitem"><span data-lang="en">Workflow</span><span data-lang="zh">流程</span></a></li>
-        <li role="none"><a href="#innovation" class="nav-link" role="menuitem"><span data-lang="en">Innovation</span><span data-lang="zh">创新</span></a></li>
-        <li role="none"><a href="#impact" class="nav-link" role="menuitem"><span data-lang="en">Impact</span><span data-lang="zh">影响</span></a></li>
-        <li role="none"><a href="#impact-2" class="nav-link" role="menuitem"><span data-lang="en">Impact 2</span><span data-lang="zh">影响2</span></a></li>
-        <li role="none"><a href="#business" class="nav-link" role="menuitem"><span data-lang="en">Business</span><span data-lang="zh">商业</span></a></li>
-        <li role="none"><a href="#roadmap" class="nav-link" role="menuitem"><span data-lang="en">Roadmap</span><span data-lang="zh">路线</span></a></li>
+        <li role="none"><a href="#solution" class="nav-link" role="menuitem"><span data-lang="en">How</span><span data-lang="zh">方案</span></a></li>
+        <li role="none"><a href="#workflow" class="nav-link" role="menuitem"><span data-lang="en">Results</span><span data-lang="zh">成果</span></a></li>
+        <li role="none"><a href="#business" class="nav-link" role="menuitem"><span data-lang="en">Future</span><span data-lang="zh">未来</span></a></li>
       </ul>
     </div>
   </nav>
@@ -4775,14 +4951,16 @@
   <!-- Slide Indicators with enhanced accessibility -->
   <div class="slide-indicators" role="navigation" aria-label="Slide navigation">
     <a href="#hero" class="slide-indicator active" aria-label="Go to Hero section" aria-current="true"></a>
-    <a href="#vision" class="slide-indicator" aria-label="Go to Vision section"></a>
     <a href="#problems" class="slide-indicator" aria-label="Go to Problems section"></a>
+    <a href="#vision" class="slide-indicator" aria-label="Go to Vision section"></a>
     <a href="#solution" class="slide-indicator" aria-label="Go to Solution section"></a>
     <a href="#input-system" class="slide-indicator" aria-label="Go to Input System section"></a>
+    <a href="#input-modes" class="slide-indicator" aria-label="Go to Input Modes section"></a>
     <a href="#agent-details" class="slide-indicator" aria-label="Go to Agent Details section"></a>
     <a href="#agent-details-2" class="slide-indicator" aria-label="Go to Agent Details 2 section"></a>
-    <a href="#workflow" class="slide-indicator" aria-label="Go to Workflow section"></a>
     <a href="#innovation" class="slide-indicator" aria-label="Go to Innovation section"></a>
+    <a href="#innovation-2" class="slide-indicator" aria-label="Go to Innovation Part 2 section"></a>
+    <a href="#workflow" class="slide-indicator" aria-label="Go to Workflow section"></a>
     <a href="#impact" class="slide-indicator" aria-label="Go to Impact section"></a>
     <a href="#impact-2" class="slide-indicator" aria-label="Go to Impact 2 section"></a>
     <a href="#business" class="slide-indicator" aria-label="Go to Business section"></a>
@@ -4806,7 +4984,19 @@
         <span data-lang="zh">通过自主AI代理变革软件开发——从需求输入到代码交付</span>
       </p>
 
-      <div class="grid-4 animate-in delay-3" role="group" aria-label="Key metrics">
+      <nav class="hero-agenda animate-in delay-3" aria-label="Story roadmap">
+        <a href="#problems" class="hero-agenda-item"><span data-lang="en">01 Why</span><span data-lang="zh">01 痛点</span></a>
+        <span class="hero-agenda-sep" aria-hidden="true">→</span>
+        <a href="#vision" class="hero-agenda-item"><span data-lang="en">02 Vision</span><span data-lang="zh">02 愿景</span></a>
+        <span class="hero-agenda-sep" aria-hidden="true">→</span>
+        <a href="#solution" class="hero-agenda-item"><span data-lang="en">03 How</span><span data-lang="zh">03 方案</span></a>
+        <span class="hero-agenda-sep" aria-hidden="true">→</span>
+        <a href="#workflow" class="hero-agenda-item"><span data-lang="en">04 Results</span><span data-lang="zh">04 成果</span></a>
+        <span class="hero-agenda-sep" aria-hidden="true">→</span>
+        <a href="#business" class="hero-agenda-item"><span data-lang="en">05 Future</span><span data-lang="zh">05 未来</span></a>
+      </nav>
+
+      <div class="grid-4 animate-in delay-4" role="group" aria-label="Key metrics">
         <div class="card metric-card" role="metric" aria-label="6 Specialized Agents">
           <div class="metric-value">6</div>
           <div class="metric-label">
@@ -4837,7 +5027,7 @@
         </div>
       </div>
 
-      <div class="grid-2 animate-in delay-4 hero-cards">
+      <div class="grid-2 animate-in delay-5 hero-cards">
         <div class="card">
           <h3 class="mb-md">
             <span data-lang="en">🚀 Value Amplification</span>
@@ -4862,11 +5052,98 @@
     </div>
   </section>
 
+  <!-- Problem Section -->
+  <section class="section compact" id="problems">
+    <div class="particles-container" id="particlesProblems"></div>
+    <div class="section-content">
+      <div class="badge">01 · Current Challenges</div>
+
+      <h2 class="gradient-text mb-xl">
+        <span data-lang="en">The Development Bottleneck</span>
+        <span data-lang="zh">开发瓶颈</span>
+      </h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="problem-icon">🔴</div>
+          <h3 class="mb-md">
+            <span data-lang="en">Manual Intervention</span>
+            <span data-lang="zh">人工干预</span>
+          </h3>
+          <p>
+            <span data-lang="en">AI generates code but still requires manual input, testing, debugging, and archiving</span>
+            <span data-lang="zh">AI生成代码但仍需手动输入、测试、调试和归档</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="problem-icon">🔴</div>
+          <h3 class="mb-md">
+            <span data-lang="en">Process Fragmentation</span>
+            <span data-lang="zh">流程断裂</span>
+          </h3>
+          <p>
+            <span data-lang="en">Requirements → design → coding → testing → deployment each need extensive human coordination</span>
+            <span data-lang="zh">需求→设计→编码→测试→部署各环节需要大量人工协调</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="problem-icon">🔴</div>
+          <h3 class="mb-md">
+            <span data-lang="en">Inefficient Requirements</span>
+            <span data-lang="zh">需求低效</span>
+          </h3>
+          <p>
+            <span data-lang="en">Lack of automated requirement analysis creates high communication costs between BA and developers</span>
+            <span data-lang="zh">缺乏自动化需求分析机制，BA与开发者沟通成本高</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="problem-icon">🔴</div>
+          <h3 class="mb-md">
+            <span data-lang="en">Limited Parallelism</span>
+            <span data-lang="zh">并行能力不足</span>
+          </h3>
+          <p>
+            <span data-lang="en">Current tools handle one task at a time, unable to cope with large backlogs</span>
+            <span data-lang="zh">现有工具一次只能处理一个任务，无法应对大量积压</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="problem-icon">🔴</div>
+          <h3 class="mb-md">
+            <span data-lang="en">No Autonomy</span>
+            <span data-lang="zh">缺乏自主性</span>
+          </h3>
+          <p>
+            <span data-lang="en">AI is a passive response tool, not an active teammate driving development progress</span>
+            <span data-lang="zh">AI是被动响应工具，而非主动推进开发进度的队友</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="problem-icon">🔴</div>
+          <h3 class="mb-md">
+            <span data-lang="en">Integration Silos</span>
+            <span data-lang="zh">协作孤岛</span>
+          </h3>
+          <p>
+            <span data-lang="en">Lack of deep automated integration with existing project management systems</span>
+            <span data-lang="zh">缺乏与现有项目管理系统的深度自动集成</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Vision Section -->
   <section class="section compact" id="vision">
     <div class="particles-container" id="particlesVision"></div>
     <div class="section-content">
-      <div class="badge">Our Vision</div>
+      <div class="badge">02 · Our Vision</div>
 
       <h2 class="gradient-text mb-xl">
         <span data-lang="en">Amplifying Human Potential in Software Development</span>
@@ -4970,98 +5247,11 @@
     </div>
   </section>
 
-  <!-- Problem Section -->
-  <section class="section compact" id="problems">
-    <div class="particles-container" id="particlesProblems"></div>
-    <div class="section-content">
-      <div class="badge">Current Challenges</div>
-
-      <h2 class="gradient-text mb-xl">
-        <span data-lang="en">The Development Bottleneck</span>
-        <span data-lang="zh">开发瓶颈</span>
-      </h2>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="problem-icon">🔴</div>
-          <h3 class="mb-md">
-            <span data-lang="en">Manual Intervention</span>
-            <span data-lang="zh">人工干预</span>
-          </h3>
-          <p>
-            <span data-lang="en">AI generates code but still requires manual input, testing, debugging, and archiving</span>
-            <span data-lang="zh">AI生成代码但仍需手动输入、测试、调试和归档</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="problem-icon">🔴</div>
-          <h3 class="mb-md">
-            <span data-lang="en">Process Fragmentation</span>
-            <span data-lang="zh">流程断裂</span>
-          </h3>
-          <p>
-            <span data-lang="en">Requirements → design → coding → testing → deployment each need extensive human coordination</span>
-            <span data-lang="zh">需求→设计→编码→测试→部署各环节需要大量人工协调</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="problem-icon">🔴</div>
-          <h3 class="mb-md">
-            <span data-lang="en">Inefficient Requirements</span>
-            <span data-lang="zh">需求低效</span>
-          </h3>
-          <p>
-            <span data-lang="en">Lack of automated requirement analysis creates high communication costs between BA and developers</span>
-            <span data-lang="zh">缺乏自动化需求分析机制，BA与开发者沟通成本高</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="problem-icon">🔴</div>
-          <h3 class="mb-md">
-            <span data-lang="en">Limited Parallelism</span>
-            <span data-lang="zh">并行能力不足</span>
-          </h3>
-          <p>
-            <span data-lang="en">Current tools handle one task at a time, unable to cope with large backlogs</span>
-            <span data-lang="zh">现有工具一次只能处理一个任务，无法应对大量积压</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="problem-icon">🔴</div>
-          <h3 class="mb-md">
-            <span data-lang="en">No Autonomy</span>
-            <span data-lang="zh">缺乏自主性</span>
-          </h3>
-          <p>
-            <span data-lang="en">AI is a passive response tool, not an active teammate driving development progress</span>
-            <span data-lang="zh">AI是被动响应工具，而非主动推进开发进度的队友</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="problem-icon">🔴</div>
-          <h3 class="mb-md">
-            <span data-lang="en">Integration Silos</span>
-            <span data-lang="zh">协作孤岛</span>
-          </h3>
-          <p>
-            <span data-lang="en">Lack of deep automated integration with existing project management systems</span>
-            <span data-lang="zh">缺乏与现有项目管理系统的深度自动集成</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Solution Section -->
   <section class="section compact" id="solution">
     <div class="particles-container" id="particlesSolution"></div>
     <div class="section-content">
-      <div class="badge">Our Solution</div>
+      <div class="badge">03 · Our Solution</div>
 
       <h2 class="gradient-text mb-xl">
         <span data-lang="en">Introducing DevAgent: Your AI Digital Twin</span>
@@ -5204,307 +5394,11 @@
     </div>
   </section>
 
-  <!-- Impact Section -->
-  <section class="section compact" id="impact">
-    <div class="particles-container" id="particlesImpact"></div>
-    <div class="section-content">
-      <div class="badge">Real-world Impact</div>
-
-      <h2 class="gradient-text mb-xl">
-        <span data-lang="en">Proven Results in Production</span>
-        <span data-lang="zh">生产环境验证的结果</span>
-      </h2>
-
-      <p class="section-text-800">
-        <span data-lang="en">Actual project data demonstrates the transformative power of autonomous development</span>
-        <span data-lang="zh">实际项目数据展示了自主开发的变革力量</span>
-      </p>
-
-      <div class="card mb-3xl">
-        <h3 class="mb-xl text-center">
-          <span data-lang="en">DevAgent vs Traditional Development</span>
-          <span data-lang="zh">DevAgent vs 传统开发</span>
-        </h3>
-
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>
-                <span data-lang="en">Metric</span>
-                <span data-lang="zh">指标</span>
-              </th>
-              <th>
-                <span data-lang="en">Traditional</span>
-                <span data-lang="zh">传统方式</span>
-              </th>
-              <th>
-                <span data-lang="en">DevAgent</span>
-                <span data-lang="zh">DevAgent</span>
-              </th>
-              <th>
-                <span data-lang="en">Improvement</span>
-                <span data-lang="zh">提升</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="Metric">
-                <span data-lang="en">Delivery Cycle</span>
-                <span data-lang="zh">交付周期</span>
-              </td>
-              <td data-label="Traditional" class="comparison-traditional">
-                <span data-lang="en">3-5 days</span>
-                <span data-lang="zh">3-5天</span>
-              </td>
-              <td data-label="DevAgent" class="comparison-value">
-                <span data-lang="en">8 hours</span>
-                <span data-lang="zh">8小时</span>
-              </td>
-              <td data-label="Improvement" class="comparison-value">
-                <span data-lang="en">5-10X</span>
-                <span data-lang="zh">5-10倍</span>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Metric">
-                <span data-lang="en">Parallel Tasks</span>
-                <span data-lang="zh">并行任务</span>
-              </td>
-              <td data-label="Traditional" class="comparison-traditional">
-                <span data-lang="en">1 task</span>
-                <span data-lang="zh">1个任务</span>
-              </td>
-              <td data-label="DevAgent" class="comparison-value">
-                <span data-lang="en">5-10 tasks</span>
-                <span data-lang="zh">5-10个任务</span>
-              </td>
-              <td data-label="Improvement" class="comparison-value">
-                <span data-lang="en">5-10X</span>
-                <span data-lang="zh">5-10倍</span>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Metric">
-                <span data-lang="en">Test Coverage</span>
-                <span data-lang="zh">测试覆盖率</span>
-              </td>
-              <td data-label="Traditional" class="comparison-traditional">
-                <span data-lang="en">70-80%</span>
-                <span data-lang="zh">70-80%</span>
-              </td>
-              <td data-label="DevAgent" class="comparison-value">
-                <span data-lang="en">97%</span>
-                <span data-lang="zh">97%</span>
-              </td>
-              <td data-label="Improvement" class="comparison-value">
-                <span data-lang="en">+20%</span>
-                <span data-lang="zh">+20%</span>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Metric">
-                <span data-lang="en">Success Rate</span>
-                <span data-lang="zh">成功率</span>
-              </td>
-              <td data-label="Traditional" class="comparison-traditional">
-                <span data-lang="en">60-70%</span>
-                <span data-lang="zh">60-70%</span>
-              </td>
-              <td data-label="DevAgent" class="comparison-value">
-                <span data-lang="en">92%</span>
-                <span data-lang="zh">92%</span>
-              </td>
-              <td data-label="Improvement" class="comparison-value">
-                <span data-lang="en">+30%</span>
-                <span data-lang="zh">+30%</span>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Metric">
-                <span data-lang="en">Security Audit</span>
-                <span data-lang="zh">安全审查</span>
-              </td>
-              <td data-label="Traditional" class="comparison-traditional">
-                <span data-lang="en">Manual review</span>
-                <span data-lang="zh">人工审查</span>
-              </td>
-              <td data-label="DevAgent" class="comparison-value">
-                <span data-lang="en">Automated dual-standard</span>
-                <span data-lang="zh">自动双重标准</span>
-              </td>
-              <td data-label="Improvement" class="comparison-value">
-                <span data-lang="en">0 vulnerabilities</span>
-                <span data-lang="zh">0漏洞</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- Production Validation Section 2 -->
-  <section class="section compact" id="impact-2">
-    <div class="particles-container" id="particlesImpact2"></div>
-    <div class="section-content">
-      <div class="badge">Real-world Impact</div>
-
-      <h2 class="gradient-text mb-xl">
-        <span data-lang="en">Production Validation & Metrics</span>
-        <span data-lang="zh">生产验证与绩效指标</span>
-      </h2>
-
-      <p class="section-text-800 mb-3xl">
-        <span data-lang="en">Comprehensive validation from enterprise production environments demonstrates real-world performance</span>
-        <span data-lang="zh">企业生产环境的综合验证展示了真实世界的性能表现</span>
-      </p>
-
-      <div class="card mb-3xl">
-        <h3 class="mb-xl text-center">
-          <span data-lang="en">Project Performance Metrics</span>
-          <span data-lang="zh">项目绩效指标</span>
-        </h3>
-
-        <div class="grid-4">
-          <div class="text-center-p-md">
-            <div class="gradient-text-48">79</div>
-            <div class="font-sm-muted-mb-sm">
-              <span data-lang="en">Total Tickets</span>
-              <span data-lang="zh">总工单</span>
-            </div>
-            <div class="font-xs-muted">
-              <span data-lang="en">Successfully delivered</span>
-              <span data-lang="zh">成功交付</span>
-            </div>
-          </div>
-
-          <div class="text-center-p-md">
-            <div class="gradient-text-48">92.4%</div>
-            <div class="font-sm-muted-mb-sm">
-              <span data-lang="en">Success Rate</span>
-              <span data-lang="zh">成功率</span>
-            </div>
-            <div class="font-xs-muted">
-              <span data-lang="en">First-pass quality</span>
-              <span data-lang="zh">首次通过质量</span>
-            </div>
-          </div>
-
-          <div class="text-center-p-md">
-            <div class="gradient-text-48">97%</div>
-            <div class="font-sm-muted-mb-sm">
-              <span data-lang="en">Test Coverage</span>
-              <span data-lang="zh">测试覆盖率</span>
-            </div>
-            <div class="font-xs-muted">
-              <span data-lang="en">TDD-generated tests</span>
-              <span data-lang="zh">TDD生成测试</span>
-            </div>
-          </div>
-
-          <div class="text-center-p-md">
-            <div class="gradient-text-48">8h</div>
-            <div class="font-sm-muted-mb-sm">
-              <span data-lang="en">Avg Delivery</span>
-              <span data-lang="zh">平均交付</span>
-            </div>
-            <div class="font-xs-muted">
-              <span data-lang="en">End-to-end time</span>
-              <span data-lang="zh">端到端时间</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mb-3xl">
-        <h3 class="mb-xl text-center">
-          <span data-lang="en">Enterprise-Grade Production Validation</span>
-          <span data-lang="zh">企业级生产环境验证</span>
-        </h3>
-
-        <div class="grid-4">
-          <div class="text-center-p-md">
-            <div class="gradient-text-48">30+</div>
-            <div class="font-sm-muted-mb-sm">
-              <span data-lang="en">Production Tickets</span>
-              <span data-lang="zh">生产工单</span>
-            </div>
-            <div class="font-xs-muted">
-              <span data-lang="en">Custodian KYC project</span>
-              <span data-lang="zh">Custodian KYC项目</span>
-            </div>
-          </div>
-
-          <div class="text-center-p-md">
-            <div class="gradient-text-48">0</div>
-            <div class="font-sm-muted-mb-sm">
-              <span data-lang="en">Manual Coding</span>
-              <span data-lang="zh">人工编码</span>
-            </div>
-            <div class="font-xs-muted">
-              <span data-lang="en">Fully autonomous development</span>
-              <span data-lang="zh">完全自主开发</span>
-            </div>
-          </div>
-
-          <div class="text-center-p-md">
-            <div class="gradient-text-48">✓</div>
-            <div class="font-sm-muted-mb-sm">
-              <span data-lang="en">PR Review</span>
-              <span data-lang="zh">人工审核</span>
-            </div>
-            <div class="font-xs-muted">
-              <span data-lang="en">Safety baseline maintained</span>
-              <span data-lang="zh">保持安全基线</span>
-            </div>
-          </div>
-
-          <div class="text-center-p-md">
-            <div class="gradient-text-48">🏦</div>
-            <div class="font-sm-muted-mb-sm">
-              <span data-lang="en">Enterprise KYC System</span>
-              <span data-lang="zh">企业KYC系统</span>
-            </div>
-            <div class="font-xs-muted">
-              <span data-lang="en">Real business system</span>
-              <span data-lang="zh">真实业务系统</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3 class="mb-md">
-            <span data-lang="en">Quality Assurance</span>
-            <span data-lang="zh">质量保证</span>
-          </h3>
-          <p>
-            <span data-lang="en">Harness Engineering provides data-driven confidence scoring—97% test coverage ensures quality</span>
-            <span data-lang="zh">Harness Engineering提供数据驱动的自信度评分——97%测试覆盖率确保质量</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <h3 class="mb-md">
-            <span data-lang="en">Dual-Standard Security</span>
-            <span data-lang="zh">双重标准安全</span>
-          </h3>
-          <p>
-            <span data-lang="en">KBTG + China compliance standards ensure zero security vulnerabilities in production code</span>
-            <span data-lang="zh">KBTG+中国合规标准确保生产代码零安全漏洞</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Multi-Modal Input System Section -->
   <section class="section compact" id="input-system">
     <div class="particles-container" id="particlesInput"></div>
     <div class="section-content">
-      <div class="badge">Innovation</div>
+      <div class="badge">03 · Multi-Modal Input</div>
 
       <h2 class="gradient-text mb-xl">
         <span data-lang="en">Multi-Modal Requirement Input System</span>
@@ -5516,7 +5410,7 @@
         <span data-lang="zh">三种智能输入模式支持无缝需求摄入——无需手动格式化</span>
       </p>
 
-      <div class="card mb-3xl">
+      <div class="card">
         <h3 class="mb-xl text-center">
           <span data-lang="en">🎯 Feishu Voice Robot — Revolutionary Input Innovation</span>
           <span data-lang="zh">🎯 飞书语音机器人——革命性输入创新</span>
@@ -5600,6 +5494,19 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Multi-Modal Input System Section (Part 2) -->
+  <section class="section compact" id="input-modes">
+    <div class="particles-container" id="particlesInputModes"></div>
+    <div class="section-content">
+      <div class="badge">03 · Multi-Modal Input</div>
+
+      <h2 class="gradient-text mb-xl">
+        <span data-lang="en">Multi-Modal Requirement Input System (Part 2)</span>
+        <span data-lang="zh">多模态需求输入系统（第二部分）</span>
+      </h2>
 
       <div class="grid-3 mb-3xl">
         <div class="card">
@@ -5707,7 +5614,7 @@
   <section class="section extra-compact" id="agent-details">
     <div class="particles-container" id="particlesAgentDetails"></div>
     <div class="section-content">
-      <div class="badge">System Architecture</div>
+      <div class="badge">03 · System Architecture</div>
 
       <h2 class="gradient-text mb-xl">
         <span data-lang="en">6-Agent Digital Twin System</span>
@@ -5844,7 +5751,7 @@
   <section class="section extra-compact" id="agent-details-2">
     <div class="particles-container" id="particlesAgentDetails2"></div>
     <div class="section-content">
-      <div class="badge">System Architecture</div>
+      <div class="badge">03 · System Architecture</div>
 
       <h2 class="gradient-text mb-xl">
         <span data-lang="en">6-Agent Digital Twin System (Part 2)</span>
@@ -5920,11 +5827,208 @@
     </div>
   </section>
 
+  <!-- Innovation Section -->
+  <section class="section compact" id="innovation">
+    <div class="particles-container" id="particlesInnovation"></div>
+    <div class="section-content">
+      <div class="badge">03 · Core Innovations</div>
+
+      <h2 class="gradient-text mb-xl">
+        <span data-lang="en">Breakthrough Technologies</span>
+        <span data-lang="zh">突破性技术</span>
+      </h2>
+
+      <p class="section-text-800">
+        <span data-lang="en">Revolutionary innovations that transform how software is developed</span>
+        <span data-lang="zh">革命性创新，变革软件开发方式</span>
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="solution-icon">🎤</div>
+          <h3 class="mb-md">
+            <span data-lang="en">Feishu Voice Input</span>
+            <span data-lang="zh">飞书语音输入</span>
+          </h3>
+          <p class="mb-lg">
+            <span data-lang="en">Voice-based requirement creation through Feishu bot—dramatically lowering the barrier to requirement entry</span>
+            <span data-lang="zh">通过飞书机器人语音创建需求——极大降低需求录入门槛</span>
+          </p>
+          <div class="card-bg">
+            <div class="font-sm-muted-mb-sm">
+              <span data-lang="en">Input Efficiency</span>
+              <span data-lang="zh">输入效率</span>
+            </div>
+            <div class="gradient-text-24">
+              <span data-lang="en">10X Faster</span>
+              <span data-lang="zh">10倍提升</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="solution-icon">🤝</div>
+          <h3 class="mb-md">
+            <span data-lang="en">Autonomous BA Communication</span>
+            <span data-lang="zh">自主BA沟通</span>
+          </h3>
+          <p class="mb-lg">
+            <span data-lang="en">Agent autonomously clarifies requirements on tickets when unclear—reducing coordination costs</span>
+            <span data-lang="zh">需求不清晰时自主在Ticket上沟通确认——减少协调成本</span>
+          </p>
+          <div class="card-bg">
+            <div class="font-sm-muted-mb-sm">
+              <span data-lang="en">Communication Cost</span>
+              <span data-lang="zh">沟通成本</span>
+            </div>
+            <div class="gradient-text-24">
+              <span data-lang="en">80% Reduction</span>
+              <span data-lang="zh">80%减少</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="solution-icon">🧪</div>
+          <h3 class="mb-md">
+            <span data-lang="en">TDD-First Architecture</span>
+            <span data-lang="zh">TDD优先架构</span>
+          </h3>
+          <p class="mb-lg">
+            <span data-lang="en">Complete test plan and acceptance criteria designed before coding—ensuring verifiable quality</span>
+            <span data-lang="zh">编码前设计完整测试计划和验收标准——确保可验证的交付质量</span>
+          </p>
+          <div class="card-bg">
+            <div class="font-sm-muted-mb-sm">
+              <span data-lang="en">Quality Assurance</span>
+              <span data-lang="zh">质量保证</span>
+            </div>
+            <div class="gradient-text-24">
+              <span data-lang="en">97% Coverage</span>
+              <span data-lang="zh">97%覆盖率</span>
+            </div>
+          </div>
+
+          <div class="card-green-mt-md">
+            <div class="font-sm-muted-upper">
+              <span data-lang="en">Three-Level Testing Strategy</span>
+              <span data-lang="zh">三级测试策略</span>
+            </div>
+            <div class="font-xs-secondary-lh">
+              <div class="mb-xs">
+                <strong class="accent-color">• Unit Tests:</strong>
+                <span data-lang="en"> Component/Function level verification</span>
+                <span data-lang="zh"> 组件/函数级验证</span>
+              </div>
+              <div class="mb-xs">
+                <strong class="accent-color">• API Tests:</strong>
+                <span data-lang="en"> Interface level validation</span>
+                <span data-lang="zh"> 接口级验证</span>
+              </div>
+              <div>
+                <strong class="accent-color">• E2E Tests:</strong>
+                <span data-lang="en"> End-to-end user flow verification</span>
+                <span data-lang="zh"> 端到端用户流程验证</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Innovation Section (Part 2) -->
+  <section class="section compact" id="innovation-2">
+    <div class="particles-container" id="particlesInnovation2"></div>
+    <div class="section-content">
+      <div class="badge">03 · Core Innovations</div>
+
+      <h2 class="gradient-text mb-xl">
+        <span data-lang="en">Breakthrough Technologies (Part 2)</span>
+        <span data-lang="zh">突破性技术（第二部分）</span>
+      </h2>
+
+      <div class="card card-enhanced">
+          <div class="solution-icon">⚡</div>
+          <h3 class="mb-md">
+            <span data-lang="en">Harness Engineering: Data-Driven Quality Confidence</span>
+            <span data-lang="zh">Harness工程化：数据驱动的质量自信度</span>
+          </h3>
+          <p class="mb-lg">
+            <span data-lang="en">Every "I think it's fine" must be backed by data. Our confidence scoring model makes quality quantifiable and trustworthy.</span>
+            <span data-lang="zh">每一个"我觉得没问题"的背后，必须有数据支撑。我们的自信度评分模型让质量可量化、可置信。</span>
+          </p>
+
+          <div class="card-black">
+            <div class="font-bold-accent-md">
+              <span data-lang="en">Confidence Score Formula</span>
+              <span data-lang="zh">自信度评分公式</span>
+            </div>
+            <div class="font-mono-sm">
+              <span data-lang="en">Confidence = (Test Coverage × Coverage%) + (Test Pass Rate × Pass%) + (Requirement Coverage × Acceptance%) + (Security Audit × Security Score) + (Code Quality × Review Score)</span>
+              <span data-lang="zh">自信度 = (测试覆盖率权重 × 覆盖率%) + (测试通过率权重 × 通过率%) + (需求覆盖度权重 × 验收标准通过率%) + (安全审查权重 × 安全评分) + (代码质量权重 × Review评分)</span>
+            </div>
+          </div>
+
+          <div class="grid-4">
+            <div class="text-center-p-md">
+              <div class="gradient-text-36">≥90%</div>
+              <div class="font-xs-muted">
+                <span data-lang="en">High Confidence</span>
+                <span data-lang="zh">高自信度</span>
+              </div>
+              <div class="font-xs-accent">
+                <span data-lang="en">Ready to Deliver</span>
+                <span data-lang="zh">可直接交付</span>
+              </div>
+            </div>
+
+            <div class="text-center-p-md">
+              <div class="gradient-text-36-secondary">≥75%</div>
+              <div class="font-xs-muted">
+                <span data-lang="en">Medium Confidence</span>
+                <span data-lang="zh">中自信度</span>
+              </div>
+              <div class="font-xs-secondary">
+                <span data-lang="en">Manual Key Path Check</span>
+                <span data-lang="zh">人工确认关键路径</span>
+              </div>
+            </div>
+
+            <div class="text-center-p-md">
+              <div class="gradient-text-36-tertiary">≥60%</div>
+              <div class="font-xs-muted">
+                <span data-lang="en">Low Confidence</span>
+                <span data-lang="zh">低自信度</span>
+              </div>
+              <div class="font-xs-secondary">
+                <span data-lang="en">Full Manual Review</span>
+                <span data-lang="zh">人工全面Review</span>
+              </div>
+            </div>
+
+            <div class="text-center-p-md">
+              <div class="gradient-text-36-red"><60%</div>
+              <div class="font-xs-muted">
+                <span data-lang="en">No Confidence</span>
+                <span data-lang="zh">不自信</span>
+              </div>
+              <div class="font-xs-red">
+                <span data-lang="en">Return for Rework</span>
+                <span data-lang="zh">退回重做</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
   <!-- Autonomous Workflow Section -->
   <section class="section extra-compact" id="workflow">
     <div class="particles-container" id="particlesWorkflow"></div>
     <div class="section-content">
-      <div class="badge">Autonomous Process</div>
+      <div class="badge">04 · Autonomous Process</div>
 
       <h2 class="gradient-text mb-xl">
         <span data-lang="en">7-Phase Autonomous Development Pipeline</span>
@@ -6098,196 +6202,307 @@
     </div>
   </section>
 
-  <!-- Innovation Section -->
-  <section class="section compact" id="innovation">
-    <div class="particles-container" id="particlesInnovation"></div>
+  <!-- Impact Section -->
+  <section class="section compact" id="impact">
+    <div class="particles-container" id="particlesImpact"></div>
     <div class="section-content">
-      <div class="badge">Core Innovations</div>
+      <div class="badge">04 · Real-world Impact</div>
 
       <h2 class="gradient-text mb-xl">
-        <span data-lang="en">Breakthrough Technologies</span>
-        <span data-lang="zh">突破性技术</span>
+        <span data-lang="en">Proven Results in Production</span>
+        <span data-lang="zh">生产环境验证的结果</span>
       </h2>
 
       <p class="section-text-800">
-        <span data-lang="en">Revolutionary innovations that transform how software is developed</span>
-        <span data-lang="zh">革命性创新，变革软件开发方式</span>
+        <span data-lang="en">Actual project data demonstrates the transformative power of autonomous development</span>
+        <span data-lang="zh">实际项目数据展示了自主开发的变革力量</span>
       </p>
+
+      <div class="card mb-3xl">
+        <h3 class="mb-xl text-center">
+          <span data-lang="en">DevAgent vs Traditional Development</span>
+          <span data-lang="zh">DevAgent vs 传统开发</span>
+        </h3>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>
+                <span data-lang="en">Metric</span>
+                <span data-lang="zh">指标</span>
+              </th>
+              <th>
+                <span data-lang="en">Traditional</span>
+                <span data-lang="zh">传统方式</span>
+              </th>
+              <th>
+                <span data-lang="en">DevAgent</span>
+                <span data-lang="zh">DevAgent</span>
+              </th>
+              <th>
+                <span data-lang="en">Improvement</span>
+                <span data-lang="zh">提升</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Metric">
+                <span data-lang="en">Delivery Cycle</span>
+                <span data-lang="zh">交付周期</span>
+              </td>
+              <td data-label="Traditional" class="comparison-traditional">
+                <span data-lang="en">3-5 days</span>
+                <span data-lang="zh">3-5天</span>
+              </td>
+              <td data-label="DevAgent" class="comparison-value">
+                <span data-lang="en">8 hours</span>
+                <span data-lang="zh">8小时</span>
+              </td>
+              <td data-label="Improvement" class="comparison-value">
+                <span data-lang="en">5-10X</span>
+                <span data-lang="zh">5-10倍</span>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Metric">
+                <span data-lang="en">Parallel Tasks</span>
+                <span data-lang="zh">并行任务</span>
+              </td>
+              <td data-label="Traditional" class="comparison-traditional">
+                <span data-lang="en">1 task</span>
+                <span data-lang="zh">1个任务</span>
+              </td>
+              <td data-label="DevAgent" class="comparison-value">
+                <span data-lang="en">5-10 tasks</span>
+                <span data-lang="zh">5-10个任务</span>
+              </td>
+              <td data-label="Improvement" class="comparison-value">
+                <span data-lang="en">5-10X</span>
+                <span data-lang="zh">5-10倍</span>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Metric">
+                <span data-lang="en">Test Coverage</span>
+                <span data-lang="zh">测试覆盖率</span>
+              </td>
+              <td data-label="Traditional" class="comparison-traditional">
+                <span data-lang="en">70-80%</span>
+                <span data-lang="zh">70-80%</span>
+              </td>
+              <td data-label="DevAgent" class="comparison-value">
+                <span data-lang="en">97%</span>
+                <span data-lang="zh">97%</span>
+              </td>
+              <td data-label="Improvement" class="comparison-value">
+                <span data-lang="en">+20%</span>
+                <span data-lang="zh">+20%</span>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Metric">
+                <span data-lang="en">Success Rate</span>
+                <span data-lang="zh">成功率</span>
+              </td>
+              <td data-label="Traditional" class="comparison-traditional">
+                <span data-lang="en">60-70%</span>
+                <span data-lang="zh">60-70%</span>
+              </td>
+              <td data-label="DevAgent" class="comparison-value">
+                <span data-lang="en">92%</span>
+                <span data-lang="zh">92%</span>
+              </td>
+              <td data-label="Improvement" class="comparison-value">
+                <span data-lang="en">+30%</span>
+                <span data-lang="zh">+30%</span>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Metric">
+                <span data-lang="en">Security Audit</span>
+                <span data-lang="zh">安全审查</span>
+              </td>
+              <td data-label="Traditional" class="comparison-traditional">
+                <span data-lang="en">Manual review</span>
+                <span data-lang="zh">人工审查</span>
+              </td>
+              <td data-label="DevAgent" class="comparison-value">
+                <span data-lang="en">Automated dual-standard</span>
+                <span data-lang="zh">自动双重标准</span>
+              </td>
+              <td data-label="Improvement" class="comparison-value">
+                <span data-lang="en">0 vulnerabilities</span>
+                <span data-lang="zh">0漏洞</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Production Validation Section 2 -->
+  <section class="section compact" id="impact-2">
+    <div class="particles-container" id="particlesImpact2"></div>
+    <div class="section-content">
+      <div class="badge">04 · Real-world Impact</div>
+
+      <h2 class="gradient-text mb-xl">
+        <span data-lang="en">Production Validation & Metrics</span>
+        <span data-lang="zh">生产验证与绩效指标</span>
+      </h2>
+
+      <p class="section-text-800 mb-3xl">
+        <span data-lang="en">Comprehensive validation from enterprise production environments demonstrates real-world performance</span>
+        <span data-lang="zh">企业生产环境的综合验证展示了真实世界的性能表现</span>
+      </p>
+
+      <div class="card mb-3xl">
+        <h3 class="mb-xl text-center">
+          <span data-lang="en">Project Performance Metrics</span>
+          <span data-lang="zh">项目绩效指标</span>
+        </h3>
+
+        <div class="grid-4">
+          <div class="text-center-p-md">
+            <div class="gradient-text-48">79</div>
+            <div class="font-sm-muted-mb-sm">
+              <span data-lang="en">Total Tickets</span>
+              <span data-lang="zh">总工单</span>
+            </div>
+            <div class="font-xs-muted">
+              <span data-lang="en">Successfully delivered</span>
+              <span data-lang="zh">成功交付</span>
+            </div>
+          </div>
+
+          <div class="text-center-p-md">
+            <div class="gradient-text-48">92.4%</div>
+            <div class="font-sm-muted-mb-sm">
+              <span data-lang="en">Success Rate</span>
+              <span data-lang="zh">成功率</span>
+            </div>
+            <div class="font-xs-muted">
+              <span data-lang="en">First-pass quality</span>
+              <span data-lang="zh">首次通过质量</span>
+            </div>
+          </div>
+
+          <div class="text-center-p-md">
+            <div class="gradient-text-48">97%</div>
+            <div class="font-sm-muted-mb-sm">
+              <span data-lang="en">Test Coverage</span>
+              <span data-lang="zh">测试覆盖率</span>
+            </div>
+            <div class="font-xs-muted">
+              <span data-lang="en">TDD-generated tests</span>
+              <span data-lang="zh">TDD生成测试</span>
+            </div>
+          </div>
+
+          <div class="text-center-p-md">
+            <div class="gradient-text-48">8h</div>
+            <div class="font-sm-muted-mb-sm">
+              <span data-lang="en">Avg Delivery</span>
+              <span data-lang="zh">平均交付</span>
+            </div>
+            <div class="font-xs-muted">
+              <span data-lang="en">End-to-end time</span>
+              <span data-lang="zh">端到端时间</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3xl">
+        <h3 class="mb-xl text-center">
+          <span data-lang="en">Enterprise-Grade Production Validation</span>
+          <span data-lang="zh">企业级生产环境验证</span>
+        </h3>
+
+        <div class="grid-4">
+          <div class="text-center-p-md">
+            <div class="gradient-text-48">30+</div>
+            <div class="font-sm-muted-mb-sm">
+              <span data-lang="en">Production Tickets</span>
+              <span data-lang="zh">生产工单</span>
+            </div>
+            <div class="font-xs-muted">
+              <span data-lang="en">Custodian KYC project</span>
+              <span data-lang="zh">Custodian KYC项目</span>
+            </div>
+          </div>
+
+          <div class="text-center-p-md">
+            <div class="gradient-text-48">0</div>
+            <div class="font-sm-muted-mb-sm">
+              <span data-lang="en">Manual Coding</span>
+              <span data-lang="zh">人工编码</span>
+            </div>
+            <div class="font-xs-muted">
+              <span data-lang="en">Fully autonomous development</span>
+              <span data-lang="zh">完全自主开发</span>
+            </div>
+          </div>
+
+          <div class="text-center-p-md">
+            <div class="gradient-text-48">✓</div>
+            <div class="font-sm-muted-mb-sm">
+              <span data-lang="en">PR Review</span>
+              <span data-lang="zh">人工审核</span>
+            </div>
+            <div class="font-xs-muted">
+              <span data-lang="en">Safety baseline maintained</span>
+              <span data-lang="zh">保持安全基线</span>
+            </div>
+          </div>
+
+          <div class="text-center-p-md">
+            <div class="gradient-text-48">🏦</div>
+            <div class="font-sm-muted-mb-sm">
+              <span data-lang="en">Enterprise KYC System</span>
+              <span data-lang="zh">企业KYC系统</span>
+            </div>
+            <div class="font-xs-muted">
+              <span data-lang="en">Real business system</span>
+              <span data-lang="zh">真实业务系统</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="grid-2">
         <div class="card">
-          <div class="solution-icon">🎤</div>
           <h3 class="mb-md">
-            <span data-lang="en">Feishu Voice Input</span>
-            <span data-lang="zh">飞书语音输入</span>
+            <span data-lang="en">Quality Assurance</span>
+            <span data-lang="zh">质量保证</span>
           </h3>
-          <p class="mb-lg">
-            <span data-lang="en">Voice-based requirement creation through Feishu bot—dramatically lowering the barrier to requirement entry</span>
-            <span data-lang="zh">通过飞书机器人语音创建需求——极大降低需求录入门槛</span>
+          <p>
+            <span data-lang="en">Harness Engineering provides data-driven confidence scoring—97% test coverage ensures quality</span>
+            <span data-lang="zh">Harness Engineering提供数据驱动的自信度评分——97%测试覆盖率确保质量</span>
           </p>
-          <div class="card-bg">
-            <div class="font-sm-muted-mb-sm">
-              <span data-lang="en">Input Efficiency</span>
-              <span data-lang="zh">输入效率</span>
-            </div>
-            <div class="gradient-text-24">
-              <span data-lang="en">10X Faster</span>
-              <span data-lang="zh">10倍提升</span>
-            </div>
-          </div>
         </div>
 
         <div class="card">
-          <div class="solution-icon">🤝</div>
           <h3 class="mb-md">
-            <span data-lang="en">Autonomous BA Communication</span>
-            <span data-lang="zh">自主BA沟通</span>
+            <span data-lang="en">Dual-Standard Security</span>
+            <span data-lang="zh">双重标准安全</span>
           </h3>
-          <p class="mb-lg">
-            <span data-lang="en">Agent autonomously clarifies requirements on tickets when unclear—reducing coordination costs</span>
-            <span data-lang="zh">需求不清晰时自主在Ticket上沟通确认——减少协调成本</span>
+          <p>
+            <span data-lang="en">KBTG + China compliance standards ensure zero security vulnerabilities in production code</span>
+            <span data-lang="zh">KBTG+中国合规标准确保生产代码零安全漏洞</span>
           </p>
-          <div class="card-bg">
-            <div class="font-sm-muted-mb-sm">
-              <span data-lang="en">Communication Cost</span>
-              <span data-lang="zh">沟通成本</span>
-            </div>
-            <div class="gradient-text-24">
-              <span data-lang="en">80% Reduction</span>
-              <span data-lang="zh">80%减少</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="solution-icon">🧪</div>
-          <h3 class="mb-md">
-            <span data-lang="en">TDD-First Architecture</span>
-            <span data-lang="zh">TDD优先架构</span>
-          </h3>
-          <p class="mb-lg">
-            <span data-lang="en">Complete test plan and acceptance criteria designed before coding—ensuring verifiable quality</span>
-            <span data-lang="zh">编码前设计完整测试计划和验收标准——确保可验证的交付质量</span>
-          </p>
-          <div class="card-bg">
-            <div class="font-sm-muted-mb-sm">
-              <span data-lang="en">Quality Assurance</span>
-              <span data-lang="zh">质量保证</span>
-            </div>
-            <div class="gradient-text-24">
-              <span data-lang="en">97% Coverage</span>
-              <span data-lang="zh">97%覆盖率</span>
-            </div>
-          </div>
-
-          <div class="card-green-mt-md">
-            <div class="font-sm-muted-upper">
-              <span data-lang="en">Three-Level Testing Strategy</span>
-              <span data-lang="zh">三级测试策略</span>
-            </div>
-            <div class="font-xs-secondary-lh">
-              <div class="mb-xs">
-                <strong class="accent-color">• Unit Tests:</strong>
-                <span data-lang="en"> Component/Function level verification</span>
-                <span data-lang="zh"> 组件/函数级验证</span>
-              </div>
-              <div class="mb-xs">
-                <strong class="accent-color">• API Tests:</strong>
-                <span data-lang="en"> Interface level validation</span>
-                <span data-lang="zh"> 接口级验证</span>
-              </div>
-              <div>
-                <strong class="accent-color">• E2E Tests:</strong>
-                <span data-lang="en"> End-to-end user flow verification</span>
-                <span data-lang="zh"> 端到端用户流程验证</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card card-enhanced grid-span-2">
-          <div class="solution-icon">⚡</div>
-          <h3 class="mb-md">
-            <span data-lang="en">Harness Engineering: Data-Driven Quality Confidence</span>
-            <span data-lang="zh">Harness工程化：数据驱动的质量自信度</span>
-          </h3>
-          <p class="mb-lg">
-            <span data-lang="en">Every "I think it's fine" must be backed by data. Our confidence scoring model makes quality quantifiable and trustworthy.</span>
-            <span data-lang="zh">每一个"我觉得没问题"的背后，必须有数据支撑。我们的自信度评分模型让质量可量化、可置信。</span>
-          </p>
-
-          <div class="card-black">
-            <div class="font-bold-accent-md">
-              <span data-lang="en">Confidence Score Formula</span>
-              <span data-lang="zh">自信度评分公式</span>
-            </div>
-            <div class="font-mono-sm">
-              <span data-lang="en">Confidence = (Test Coverage × Coverage%) + (Test Pass Rate × Pass%) + (Requirement Coverage × Acceptance%) + (Security Audit × Security Score) + (Code Quality × Review Score)</span>
-              <span data-lang="zh">自信度 = (测试覆盖率权重 × 覆盖率%) + (测试通过率权重 × 通过率%) + (需求覆盖度权重 × 验收标准通过率%) + (安全审查权重 × 安全评分) + (代码质量权重 × Review评分)</span>
-            </div>
-          </div>
-
-          <div class="grid-4">
-            <div class="text-center-p-md">
-              <div class="gradient-text-36">≥90%</div>
-              <div class="font-xs-muted">
-                <span data-lang="en">High Confidence</span>
-                <span data-lang="zh">高自信度</span>
-              </div>
-              <div class="font-xs-accent">
-                <span data-lang="en">Ready to Deliver</span>
-                <span data-lang="zh">可直接交付</span>
-              </div>
-            </div>
-
-            <div class="text-center-p-md">
-              <div class="gradient-text-36-secondary">≥75%</div>
-              <div class="font-xs-muted">
-                <span data-lang="en">Medium Confidence</span>
-                <span data-lang="zh">中自信度</span>
-              </div>
-              <div class="font-xs-secondary">
-                <span data-lang="en">Manual Key Path Check</span>
-                <span data-lang="zh">人工确认关键路径</span>
-              </div>
-            </div>
-
-            <div class="text-center-p-md">
-              <div class="gradient-text-36-tertiary">≥60%</div>
-              <div class="font-xs-muted">
-                <span data-lang="en">Low Confidence</span>
-                <span data-lang="zh">低自信度</span>
-              </div>
-              <div class="font-xs-secondary">
-                <span data-lang="en">Full Manual Review</span>
-                <span data-lang="zh">人工全面Review</span>
-              </div>
-            </div>
-
-            <div class="text-center-p-md">
-              <div class="gradient-text-36-red"><60%</div>
-              <div class="font-xs-muted">
-                <span data-lang="en">No Confidence</span>
-                <span data-lang="zh">不自信</span>
-              </div>
-              <div class="font-xs-red">
-                <span data-lang="en">Return for Rework</span>
-                <span data-lang="zh">退回重做</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Evolution Section -->
-
   <!-- Business Value Section -->
   <section class="section compact" id="business">
     <div class="particles-container" id="particlesBusiness"></div>
     <div class="section-content">
-      <div class="badge">Business Value</div>
+      <div class="badge">05 · Business Value</div>
 
       <h2 class="gradient-text mb-xl">
         <span data-lang="en">Transforming Business Outcomes</span>
@@ -6394,13 +6609,11 @@
     </div>
   </section>
 
-
-
   <!-- Roadmap Section -->
   <section class="section compact" id="roadmap">
     <div class="particles-container" id="particlesRoadmap"></div>
     <div class="section-content">
-      <div class="badge">Future Vision</div>
+      <div class="badge">05 · Future Vision</div>
 
       <h2 class="gradient-text mb-xl">
         <span data-lang="en">Development Roadmap</span>
@@ -6566,6 +6779,7 @@
       </div>
     </div>
   </section>
+
 
   <script>
     // Set to true to enable verbose pipeline/debug logging
@@ -7175,12 +7389,14 @@
         'particlesProblems',
         'particlesSolution',
         'particlesInput',
+        'particlesInputModes',
         'particlesAgentDetails',
         'particlesAgentDetails2',
         'particlesWorkflow',
         'particlesImpact',
         'particlesImpact2',
         'particlesInnovation',
+        'particlesInnovation2',
         'particlesBusiness',
         'particlesRoadmap',
         'particlesCta'
@@ -7263,11 +7479,30 @@
       const progressBar = document.getElementById('progressBar');
       let currentSectionId = sections[0]?.getAttribute('id') || '';
 
+      // Nav is grouped by story act: map each section to its act's anchor section
+      const sectionToAct = {
+        problems: 'problems',
+        vision: 'vision',
+        solution: 'solution',
+        'input-system': 'solution',
+        'input-modes': 'solution',
+        'agent-details': 'solution',
+        'agent-details-2': 'solution',
+        innovation: 'solution',
+        'innovation-2': 'solution',
+        workflow: 'workflow',
+        impact: 'workflow',
+        'impact-2': 'workflow',
+        business: 'business',
+        roadmap: 'business'
+      };
+
       const updateNavigation = (sectionId) => {
+        const activeAct = sectionToAct[sectionId] || sectionId;
         // Update nav links with optimized toggling
         navLinks.forEach(link => {
           const href = link.getAttribute('href')?.substring(1);
-          const isActive = href === sectionId;
+          const isActive = href === activeAct;
           link.classList.toggle('active', isActive);
           link.setAttribute('aria-current', isActive ? 'true' : 'false');
         });
