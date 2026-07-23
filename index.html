@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="DevAgent AI Digital Twin System - Transforming software development through autonomous AI agents">
-  <meta name="keywords" content="DevAgent, AI Digital Twin, Autonomous Development, Enterprise AI, Software Automation">
-  <meta name="author" content="DevAgent Team">
+  <meta name="description" content="Koder AI Digital Twin System - Transforming software development through autonomous AI agents">
+  <meta name="keywords" content="Koder, AI Digital Twin, Autonomous Development, Enterprise AI, Software Automation">
+  <meta name="author" content="Koder Team">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="DevAgent - AI Digital Twin · Enterprise Edition">
+  <meta property="og:title" content="Koder - Self-driving Dev Agent">
   <meta property="og:description" content="Transforming software development through autonomous AI agents">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="DevAgent">
+  <meta property="og:site_name" content="Koder">
   <!-- TODO: add og:image / og:url once a hosted social preview image is available -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="DevAgent - AI Digital Twin · Enterprise Edition">
+  <meta name="twitter:title" content="Koder - Self-driving Dev Agent">
   <meta name="twitter:description" content="Transforming software development through autonomous AI agents">
   <meta name="theme-color" content="#000000">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300ff88'/%3E%3Cstop offset='.5' stop-color='%2300ccff'/%3E%3Cstop offset='1' stop-color='%23bf00ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ctext x='32' y='45' font-size='38' font-weight='900' font-family='Arial,sans-serif' text-anchor='middle' fill='url(%23g)'%3ED%3C/text%3E%3C/svg%3E">
-  <title>DevAgent - AI Digital Twin · Enterprise Edition</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300ff88'/%3E%3Cstop offset='.5' stop-color='%2300ccff'/%3E%3Cstop offset='1' stop-color='%23bf00ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ctext x='32' y='45' font-size='38' font-weight='900' font-family='Arial,sans-serif' text-anchor='middle' fill='url(%23g)'%3EK%3C/text%3E%3C/svg%3E">
+  <title>Koder - Self-driving Dev Agent</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Inter:wght@400;600;700;900&display=swap&font-display=swap" rel="stylesheet">
@@ -909,6 +909,7 @@
     #hero { display: flex; flex-direction: column; justify-content: center; }
     #hero .badge { margin-bottom: var(--space-md); }
     #hero h1 { font-size: clamp(40px, 7vw, 88px); margin-bottom: var(--space-lg); }
+    #hero .hero-subtitle { font-size: clamp(18px, 2.2vw, 26px); font-weight: 600; color: var(--text-muted); letter-spacing: 0.04em; margin-top: calc(-1 * var(--space-sm)); }
     #hero .hero-text { margin-bottom: var(--space-md); }
     #hero .hero-agenda { margin-bottom: var(--space-lg); }
     .hero-cards .card { padding: var(--space-lg); }
@@ -2357,7 +2358,7 @@
   <!-- Navigation with enhanced accessibility -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-content">
-      <a href="#hero" class="nav-logo" aria-label="DevAgent Home">DevAgent</a>
+      <a href="#hero" class="nav-logo" aria-label="Koder Home">Koder</a>
       <ul class="nav-links" role="menubar">
         <li role="none"><a href="#problems" class="nav-link" role="menuitem"><span data-lang="en">Why</span><span data-lang="zh">痛点</span></a></li>
         <li role="none"><a href="#vision" class="nav-link" role="menuitem"><span data-lang="en">Vision</span><span data-lang="zh">愿景</span></a></li>
@@ -2391,10 +2392,9 @@
     <div class="section-content text-center hero-padding">
       <div class="badge animate-in">AI Hackathon 2026</div>
 
-      <h1 id="hero-title" class="gradient-text animate-in delay-1 mb-xl">
-        <span data-lang="en">DevAgent AI Digital Twin</span>
-        <span data-lang="zh">DevAgent AI 数字分身</span>
-      </h1>
+      <h1 id="hero-title" class="gradient-text animate-in delay-1 mb-sm">Koder</h1>
+
+      <p class="hero-subtitle animate-in delay-1 mb-xl">(Self-driving Dev Agent)</p>
 
       <p class="animate-in delay-2 hero-text">
         <span data-lang="en">Transforming software development through autonomous AI agents — from requirement input to code delivery</span>
@@ -2412,60 +2412,6 @@
         <span class="hero-agenda-sep" aria-hidden="true">→</span>
         <a href="#business" class="hero-agenda-item"><span data-lang="en">05 Future</span><span data-lang="zh">05 未来</span></a>
       </nav>
-
-      <div class="grid-4 animate-in delay-4" role="group" aria-label="Key metrics">
-        <div class="card metric-card" role="group" aria-label="6 Specialized Agents">
-          <div class="metric-value">6</div>
-          <div class="metric-label">
-            <span data-lang="en">Specialized Agents</span>
-            <span data-lang="zh">专业代理</span>
-          </div>
-        </div>
-        <div class="card metric-card" role="group" aria-label="92 percent Success Rate">
-          <div class="metric-value">92.4%</div>
-          <div class="metric-label">
-            <span data-lang="en">Success Rate</span>
-            <span data-lang="zh">成功率</span>
-          </div>
-        </div>
-        <div class="card metric-card" role="group" aria-label="8 hours Average Delivery Time">
-          <div class="metric-value">8h</div>
-          <div class="metric-label">
-            <span data-lang="en">Avg Delivery</span>
-            <span data-lang="zh">平均交付</span>
-          </div>
-        </div>
-        <div class="card metric-card" role="group" aria-label="97 percent Test Coverage">
-          <div class="metric-value">97%</div>
-          <div class="metric-label">
-            <span data-lang="en">Test Coverage</span>
-            <span data-lang="zh">测试覆盖率</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-2 animate-in delay-5 hero-cards">
-        <div class="card">
-          <h3 class="mb-md">
-            <span data-lang="en">🚀 Value Amplification</span>
-            <span data-lang="zh">🚀 价值放大</span>
-          </h3>
-          <p>
-            <span data-lang="en">Engineers focus on creative work while AI handles repetitive tasks</span>
-            <span data-lang="zh">工程师专注创意工作，AI处理重复任务</span>
-          </p>
-        </div>
-        <div class="card">
-          <h3 class="mb-md">
-            <span data-lang="en">🏦 Production Proven</span>
-            <span data-lang="zh">🏦 生产验证</span>
-          </h3>
-          <p>
-            <span data-lang="en">30+ tickets delivered autonomously in Custodian KYC — real enterprise system, zero manual coding</span>
-            <span data-lang="zh">Custodian KYC 项目 30+ 工单自主交付——真实企业系统，零人工编码</span>
-          </p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -2484,36 +2430,24 @@
         <div class="card">
           <div class="problem-icon"><span class="svg-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-alert"/></svg></span></div>
           <h3 class="mb-md">
-            <span data-lang="en">No Autonomy</span>
-            <span data-lang="zh">缺乏自主性</span>
+            <span data-lang="en">Inefficient Requirement Alignment</span>
+            <span data-lang="zh">需求对齐低效</span>
           </h3>
           <p>
-            <span data-lang="en">AI is a passive tool, not an active teammate. A simple login page still needs a human to prompt, review, and push at every step.</span>
-            <span data-lang="zh">AI 是被动工具而非主动队友。一个简单的登录页面，仍需人工在每一步提示、审查和推进。</span>
+            <span data-lang="en">BA writes specs, dev reads specs, back-and-forth clarification — 80% of delay happens before a single line of code is written.</span>
+            <span data-lang="zh">BA 写需求、开发读需求、反复澄清——80% 的延迟发生在第一行代码写之前。</span>
           </p>
         </div>
 
         <div class="card">
           <div class="problem-icon"><span class="svg-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-alert"/></svg></span></div>
           <h3 class="mb-md">
-            <span data-lang="en">Process Fragmentation</span>
+            <span data-lang="en">Fragmented Process</span>
             <span data-lang="zh">流程断裂</span>
           </h3>
           <p>
             <span data-lang="en">Requirements in Jira, design in Figma, code in IDE, tests in CI — 5 tools, 5 people, 3-5 days for one feature.</span>
             <span data-lang="zh">需求在 Jira、设计在 Figma、代码在 IDE、测试在 CI——5 个工具、5 个人、3-5 天完成一个功能。</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="problem-icon"><span class="svg-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-alert"/></svg></span></div>
-          <h3 class="mb-md">
-            <span data-lang="en">Inefficient Requirements</span>
-            <span data-lang="zh">需求低效</span>
-          </h3>
-          <p>
-            <span data-lang="en">BA writes specs, dev reads specs, back-and-forth clarification — 80% of delay happens before a single line of code is written.</span>
-            <span data-lang="zh">BA 写需求、开发读需求、反复澄清——80% 的延迟发生在第一行代码写之前。</span>
           </p>
         </div>
 
@@ -2528,12 +2462,24 @@
             <span data-lang="zh">一个开发者一次做一个任务。当积压 50 个工单时，传统模式根本无法应对。</span>
           </p>
         </div>
+
+        <div class="card">
+          <div class="problem-icon"><span class="svg-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-alert"/></svg></span></div>
+          <h3 class="mb-md">
+            <span data-lang="en">Passive AI Tool</span>
+            <span data-lang="zh">被动式AI工具</span>
+          </h3>
+          <p>
+            <span data-lang="en">AI is a passive tool, not an active teammate. A simple login page still needs a human to prompt, review, and push at every step.</span>
+            <span data-lang="zh">AI 是被动工具而非主动队友。一个简单的登录页面，仍需人工在每一步提示、审查和推进。</span>
+          </p>
+        </div>
       </div>
 
       <div class="card gradient-bg" style="margin-top: var(--space-sm);">
         <p class="text-center font-bold" style="font-size: 15px;">
-          <span data-lang="en">🤖 <strong>vs AI Copilots:</strong> Cursor & Copilot assist — DevAgent <em>autonomously delivers</em>. From "AI helps you code" to "AI codes for you end-to-end"</span>
-          <span data-lang="zh">🤖 <strong>vs AI 辅助工具：</strong>Cursor、Copilot 是辅助——DevAgent <em>自主交付</em>。从"AI帮你写代码"到"AI替你端到端交付"</span>
+          <span data-lang="en">🤖 <strong>vs AI Copilots:</strong> Cursor & Copilot assist — Koder <em>autonomously delivers</em>. From "AI helps you code" to "AI codes for you end-to-end"</span>
+          <span data-lang="zh">🤖 <strong>vs AI 辅助工具：</strong>Cursor、Copilot 是辅助——Koder <em>自主交付</em>。从"AI帮你写代码"到"AI替你端到端交付"</span>
         </p>
       </div>
     </div>
@@ -2654,8 +2600,8 @@
       <div class="badge">03 · How / Our Solution</div>
 
       <h2 class="mb-xl">
-        <span data-lang="en">Introducing DevAgent: Your <span class="gradient-text">AI Digital Twin</span></span>
-        <span data-lang="zh">介绍DevAgent：您的<span class="gradient-text">AI数字分身</span></span>
+        <span data-lang="en">Introducing Koder: Your <span class="gradient-text">AI Digital Twin</span></span>
+        <span data-lang="zh">介绍Koder：您的<span class="gradient-text">AI数字分身</span></span>
       </h2>
 
       <p class="section-text-800">
@@ -3655,8 +3601,8 @@
 
       <div class="card mb-3xl">
         <h3 class="mb-xl text-center">
-          <span data-lang="en">DevAgent vs Traditional Development</span>
-          <span data-lang="zh">DevAgent vs 传统开发</span>
+          <span data-lang="en">Koder vs Traditional Development</span>
+          <span data-lang="zh">Koder vs 传统开发</span>
         </h3>
 
         <table class="comparison-table">
@@ -3671,8 +3617,8 @@
                 <span data-lang="zh">传统方式</span>
               </th>
               <th>
-                <span data-lang="en">DevAgent</span>
-                <span data-lang="zh">DevAgent</span>
+                <span data-lang="en">Koder</span>
+                <span data-lang="zh">Koder</span>
               </th>
               <th>
                 <span data-lang="en">Improvement</span>
@@ -3690,7 +3636,7 @@
                 <span data-lang="en">3-5 days</span>
                 <span data-lang="zh">3-5天</span>
               </td>
-              <td data-label="DevAgent" class="comparison-value">
+              <td data-label="Koder" class="comparison-value">
                 <span data-lang="en">8 hours</span>
                 <span data-lang="zh">8小时</span>
               </td>
@@ -3708,7 +3654,7 @@
                 <span data-lang="en">1 task</span>
                 <span data-lang="zh">1个任务</span>
               </td>
-              <td data-label="DevAgent" class="comparison-value">
+              <td data-label="Koder" class="comparison-value">
                 <span data-lang="en">5-10 tasks</span>
                 <span data-lang="zh">5-10个任务</span>
               </td>
@@ -3726,7 +3672,7 @@
                 <span data-lang="en">70-80%</span>
                 <span data-lang="zh">70-80%</span>
               </td>
-              <td data-label="DevAgent" class="comparison-value">
+              <td data-label="Koder" class="comparison-value">
                 <span data-lang="en">97%</span>
                 <span data-lang="zh">97%</span>
               </td>
@@ -3744,7 +3690,7 @@
                 <span data-lang="en">60-70%</span>
                 <span data-lang="zh">60-70%</span>
               </td>
-              <td data-label="DevAgent" class="comparison-value">
+              <td data-label="Koder" class="comparison-value">
                 <span data-lang="en">92%</span>
                 <span data-lang="zh">92%</span>
               </td>
@@ -3762,7 +3708,7 @@
                 <span data-lang="en">Manual review</span>
                 <span data-lang="zh">人工审查</span>
               </td>
-              <td data-label="DevAgent" class="comparison-value">
+              <td data-label="Koder" class="comparison-value">
                 <span data-lang="en">Automated dual-standard</span>
                 <span data-lang="zh">自动双重标准</span>
               </td>
@@ -4095,8 +4041,8 @@
         </h2>
 
         <p class="cta-description">
-          <span data-lang="en">From voice input to production code — DevAgent delivers real features autonomously in hours, not days</span>
-          <span data-lang="zh">从语音输入到生产代码——DevAgent在数小时内自主交付真实功能，而非数天</span>
+          <span data-lang="en">From voice input to production code — Koder delivers real features autonomously in hours, not days</span>
+          <span data-lang="zh">从语音输入到生产代码——Koder在数小时内自主交付真实功能，而非数天</span>
         </p>
 
         <div class="cta-buttons">
@@ -4117,7 +4063,7 @@
 
       <div class="footer">
         <p class="footer-copyright">
-          © 2026 DevAgent. <span data-lang="en">All rights reserved.</span><span data-lang="zh">保留所有权利。</span>
+          © 2026 Koder. <span data-lang="en">All rights reserved.</span><span data-lang="zh">保留所有权利。</span>
         </p>
         <p class="footer-info">
           <span data-lang="en">Internal AI Hackathon Presentation · Enterprise Edition</span>
